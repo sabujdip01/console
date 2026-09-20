@@ -55,8 +55,10 @@ Y0.createRoot(document.getElementById("root")).render(r.jsx(y1, {}));
                 savedAccountActions.insertBefore(toggle, deleteAll);
             }
             else if (toggle.parentElement !== savedAccountActions) savedAccountActions.appendChild(toggle);
-        } else if (login && toggle.parentElement !== document.body) {
-            document.body.appendChild(toggle);
+        } else if (login && !savedAccountActions) {
+            toggle.remove();
+        } else if (login && toggle.parentElement !== login) {
+            login.appendChild(toggle);
         }
     };
     placeThemeToggle();

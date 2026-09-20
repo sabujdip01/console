@@ -129,6 +129,18 @@ function s1({
         I = () => {
             navigator.clipboard.writeText(v), z(!0), setTimeout(() => z(!1), 2e3)
         },
+        pasteFirebaseUrl = async () => {
+            try {
+                const clipboardText = await navigator.clipboard.readText();
+                if (!clipboardText.trim()) {
+                    T("Clipboard is empty");
+                    return
+                }
+                p(clipboardText.trim()), T("")
+            } catch {
+                T("Clipboard access is unavailable. Paste the URL manually.")
+            }
+        },
         Z = (_, X) => {
             X.stopPropagation(), confirm("Delete this account permanently?") && D(tt.filter(U => U.id !== _))
         },
@@ -280,7 +292,7 @@ Error: ${_t}`)
                     className: "text-sm text-muted-foreground mt-2"
                 })]
             }), r.jsxs("div", {
-                className: "glass-card rounded-3xl p-7 shadow-2xl shadow-black/60",
+                className: `glass-card ${d ? "new-account-card" : "saved-account-card"} rounded-3xl p-7 shadow-2xl shadow-black/60`,
                 children: [!d && r.jsxs(r.Fragment, {
                     children: [r.jsxs("div", {
                         className: "flex items-center justify-between mb-4",
@@ -351,7 +363,7 @@ Error: ${_t}`)
                         onClick: () => {
                             S(!0), T(""), y()
                         },
-                        className: "w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-dashed border-border hover:border-red-600/50 hover:bg-red-950/10 text-muted-foreground hover:text-red-400 transition-all text-sm font-medium",
+                        className: "new-account-trigger w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-dashed border-border hover:border-red-600/50 hover:bg-red-950/10 text-muted-foreground hover:text-red-400 transition-all text-sm font-medium",
                         children: [r.jsx(gp, {
                             className: "w-4 h-4"
                         }), "New Account"]
@@ -361,7 +373,7 @@ Error: ${_t}`)
                         className: "bulk-connect-btn w-full mt-2 py-3 rounded-xl text-sm font-bold disabled:opacity-50",
                         children: w ? "Connecting all…" : `Connect All ${tt.length} Firebase`
                     }), r.jsxs("label", {
-                        className: "csv-import-btn w-full mt-2 flex items-center justify-center gap-2 py-3 rounded-xl border border-dashed text-sm font-semibold cursor-pointer",
+                        className: "csv-import-btn account-import-button w-full mt-2 flex items-center justify-center gap-2 py-3 rounded-xl border border-dashed text-sm font-semibold cursor-pointer",
                         children: [r.jsx(gp, { className: "w-4 h-4" }), "Import Excel / CSV", r.jsx("input", {
                             ref: csvInput,
                             type: "file",
@@ -528,9 +540,22 @@ Error: ${_t}`)
                     }), r.jsxs("div", {
                         className: "space-y-4",
                         children: [r.jsxs("div", {
-                            children: [r.jsx("label", {
+                            children: [r.jsxs("div", {
+                                className: "new-account-url-label",
+                                children: [r.jsx("label", {
                                 className: "block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2",
                                 children: "Firebase Database URL"
+                                }), r.jsx("button", {
+                                    type: "button",
+                                    onClick: pasteFirebaseUrl,
+                                    className: "paste-url-button",
+                                    title: "Paste Firebase URL",
+                                    "aria-label": "Paste Firebase URL from clipboard",
+                                    children: r.jsx("i", {
+                                        className: "fa-solid fa-paste",
+                                        "aria-hidden": "true"
+                                    })
+                                })]
                             }), r.jsx("input", {
                                 type: "text",
                                 value: f,
@@ -555,7 +580,7 @@ Error: ${_t}`)
                         children: [r.jsxs("button", {
                             onClick: q,
                             disabled: w,
-                            className: "flex-1 flex items-center justify-center gap-2 py-3 red-gradient rounded-xl text-white font-semibold text-sm shadow-lg shadow-red-900/40 hover:opacity-90 transition-opacity disabled:opacity-50",
+                            className: "new-account-save-button flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-semibold text-sm transition-opacity disabled:opacity-50",
                             children: [w ? r.jsx("div", {
                                 className: "w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"
                             }) : r.jsx(hh, {

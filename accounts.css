@@ -7,6 +7,8 @@
 /* Aero workspace treatment for the Firebase entry screen. */
 #root > .min-h-screen:has(.Green-logo--hero) {
     min-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
     align-items: flex-start !important;
     padding: 64px 24px 40px !important;
     background-color: #f6f6f8 !important;
@@ -23,7 +25,11 @@
 }
 
 #root > .min-h-screen:has(.Green-logo--hero) > .relative.z-10.w-full.max-w-md {
-    max-width: 520px !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: min(520px, calc(100vw - 48px)) !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
     padding: 0 !important;
 }
 
@@ -71,6 +77,47 @@
     border-radius: 10px !important;
     background: rgba(255, 255, 255, .96) !important;
     box-shadow: 0 12px 32px rgba(30, 30, 45, .07) !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card {
+    width: 100% !important;
+    max-width: min(520px, calc(100vw - 48px)) !important;
+    box-sizing: border-box !important;
+    min-height: 484px;
+    margin-inline: auto !important;
+    align-self: flex-start;
+}
+
+.new-account-url-label {
+    position: relative;
+}
+
+.new-account-url-label > label {
+    padding-right: 36px;
+}
+
+.new-account-url-label + input {
+    padding-right: 48px !important;
+}
+
+.paste-url-button {
+    position: absolute;
+    top: 28px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    display: inline-grid;
+    place-items: center;
+    border: 1px solid #e1d9f5 !important;
+    border-radius: 6px;
+    color: #7340d9 !important;
+    background: #f7f4ff !important;
+    font-size: 12px;
+}
+
+.paste-url-button:hover {
+    border-color: #cfc0f5 !important;
+    background: #f5f1ff !important;
 }
 
 #root > .min-h-screen:has(.Green-logo--hero) .glass-card::before {
@@ -139,6 +186,30 @@
     box-shadow: 0 6px 14px rgba(101, 39, 232, .18) !important;
 }
 
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-save-button {
+    color: var(--workspace-primary-contrast) !important;
+    background: var(--workspace-soft) !important;
+    border: 1px solid var(--workspace-line) !important;
+    box-shadow: none !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-save-button:hover {
+    color: var(--workspace-primary) !important;
+    border-color: color-mix(in srgb, var(--workspace-primary) 28%, var(--workspace-line)) !important;
+    background: color-mix(in srgb, var(--workspace-primary) 8%, var(--workspace-soft)) !important;
+}
+
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .theme-toggle,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .delete-all-accounts,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .new-account-trigger,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .account-import-button,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-btn,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .new-account-save-button {
+    border: 1px solid var(--login-action-line) !important;
+    border-radius: 5px !important;
+    background: var(--login-action-bg) !important;
+}
 #root > .min-h-screen:has(.Green-logo--hero) .bulk-connect-btn:hover,
 #root > .min-h-screen:has(.Green-logo--hero) .red-gradient:hover {
     background: #7b3ff2 !important;
@@ -221,6 +292,13 @@
     --workspace-ink: #202124;
     --workspace-muted: #74757c;
     --workspace-primary: #6527e8;
+    --workspace-primary-hover: #7b3ff2;
+    --workspace-primary-contrast: #ffffff;
+    --workspace-primary-shadow: rgba(101, 39, 232, .18);
+    --login-action-bg: #f7f4ff;
+    --login-action-bg-hover: #f5f1ff;
+    --login-action-line: #e1d9f5;
+    --login-action-line-hover: #cfc0f5;
 }
 
 button,
@@ -383,6 +461,13 @@ label:hover {
     --workspace-ink: #f2f3f5;
     --workspace-muted: #a4a7b0;
     --workspace-primary: #a987ff;
+    --workspace-primary-hover: #b99cff;
+    --workspace-primary-contrast: #17181f;
+    --workspace-primary-shadow: rgba(169, 135, 255, .28);
+    --login-action-bg: #292431;
+    --login-action-bg-hover: #352f4a;
+    --login-action-line: #514778;
+    --login-action-line-hover: #7667aa;
 }
 
 [data-theme="dark"] body,
@@ -551,14 +636,91 @@ label:hover {
 }
 
 .share-connection-popup > div:nth-child(3) {
-    color: #8a6500 !important;
+    color: #735500 !important;
     background: #fff8df !important;
     border-color: #eed58a !important;
 }
 
+.share-connection-popup > div:nth-child(3) svg {
+    color: #b77900 !important;
+}
+
+.share-connection-popup > div:nth-child(3) p {
+    color: #735500 !important;
+}
+
 [data-theme="dark"] .share-connection-popup > div:nth-child(3) {
-    color: #f0cf73 !important;
+    color: #f6d87d !important;
     background: #332d1d !important;
     border-color: #66552a !important;
+}
+
+[data-theme="dark"] .share-connection-popup > div:nth-child(3) svg {
+    color: #f4c14f !important;
+}
+
+[data-theme="dark"] .share-connection-popup > div:nth-child(3) p {
+    color: #f6d87d !important;
+}
+
+/* Override the older zero-border reset with the shared login action border. */
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .theme-toggle,
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .delete-all-accounts,
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .new-account-trigger,
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .account-import-button,
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .bulk-manual-btn,
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .new-account-save-button {
+    border: 1px solid var(--login-action-line) !important;
+    border-width: 1px !important;
+    border-radius: 5px !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .theme-toggle,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .delete-all-accounts,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .new-account-trigger,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .account-import-button,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .bulk-manual-btn,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .new-account-save-button {
+    border: 1px solid var(--login-action-line) !important;
+    border-width: 1px !important;
+    border-radius: 5px !important;
+}
+
+/* Keep the main login actions visually consistent across both themes. */
+#root > .min-h-screen:has(.Green-logo--hero) .theme-toggle,
+#root > .min-h-screen:has(.Green-logo--hero) .delete-all-accounts,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-trigger,
+#root > .min-h-screen:has(.Green-logo--hero) .account-import-button,
+#root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-btn,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-save-button {
+    border: 1px solid var(--login-action-line) !important;
+    border-radius: 5px !important;
+    background: var(--login-action-bg) !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .theme-toggle:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .delete-all-accounts:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-trigger:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .account-import-button:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-btn:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-save-button:hover {
+    border-color: var(--login-action-line-hover) !important;
+    background: var(--login-action-bg-hover) !important;
+}
+
+/* Save & Connect uses the same quiet secondary treatment as Cancel. */
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card .new-account-save-button,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .new-account-card .new-account-save-button {
+    color: var(--workspace-primary) !important;
+    background: var(--workspace-soft) !important;
+    border: 1px solid var(--workspace-line) !important;
+    box-shadow: none !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card .new-account-save-button:hover,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .new-account-card .new-account-save-button:hover {
+    color: var(--workspace-primary) !important;
+    border-color: color-mix(in srgb, var(--workspace-primary) 28%, var(--workspace-line)) !important;
+    background: color-mix(in srgb, var(--workspace-primary) 8%, var(--workspace-soft)) !important;
 }
 

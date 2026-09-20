@@ -28,10 +28,20 @@
 }
 
 /* Login polish requested from the latest reference pass. */
+html,
+body,
+#root {
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
 #root > .min-h-screen:has(.Green-logo--hero) {
     isolation: isolate;
     position: relative;
     overflow: hidden;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
     background-color: #fbfbfd !important;
     background-image:
         radial-gradient(circle at 50% 0%, rgba(226, 222, 255, .28), transparent 38%),
@@ -39,6 +49,14 @@
         linear-gradient(132deg, transparent 0 61%, rgba(122, 108, 194, .22) 61.2% 68%, transparent 68.2%),
         linear-gradient(42deg, transparent 0 17%, rgba(72, 157, 143, .20) 17.2% 22%, transparent 22.2%) !important;
     background-size: auto !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) > .relative.z-10.w-full.max-w-md,
+#root > .min-h-screen:has(.Green-logo--hero) > .relative.z-10.w-full.max-w-md > .glass-card {
+    width: 100% !important;
+    max-width: min(520px, calc(100vw - 48px)) !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
 }
 
 @media (max-width: 780px) {
@@ -86,6 +104,40 @@
 
 #root > .min-h-screen:has(.Green-logo--hero) .glass-card .group {
     border-radius: 9px !important;
+}
+
+/* Shared account-screen card geometry and control treatment. */
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-card,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card {
+    width: 100% !important;
+    max-width: min(520px, calc(100vw - 48px)) !important;
+    min-height: 484px !important;
+    margin-inline: auto !important;
+    box-sizing: border-box !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-card button,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card button,
+#root > .min-h-screen:has(.Green-logo--hero) .account-import-button {
+    min-height: 34px;
+    box-sizing: border-box !important;
+    border: 1px solid var(--login-action-line) !important;
+    border-radius: 5px !important;
+    color: var(--workspace-primary) !important;
+    background: var(--login-action-bg) !important;
+    font-size: 12px !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-card button:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card button:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .account-import-button:hover {
+    border-color: var(--login-action-line-hover) !important;
+    background: var(--login-action-bg-hover) !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card > .animate-fade-up > div:first-child button,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card .paste-url-button {
+    min-height: 34px !important;
 }
 
 #root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions > span {
@@ -434,4 +486,71 @@
     color: #e0d8ff;
     border-color: #7667aa !important;
     background: #352f4a;
+}
+
+/* Final shared account-screen control treatment. Keep this after all view-specific rules. */
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-card,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card {
+    width: 100% !important;
+    max-width: min(520px, calc(100vw - 48px)) !important;
+    height: 484px !important;
+    min-height: 484px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    scrollbar-width: none;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-card::-webkit-scrollbar,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card::-webkit-scrollbar {
+    display: none;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-card button,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card button,
+#root > .min-h-screen:has(.Green-logo--hero) .account-import-button {
+    min-height: 34px !important;
+    box-sizing: border-box !important;
+    border: 1px solid var(--login-action-line) !important;
+    border-width: 1px !important;
+    border-radius: 5px !important;
+    color: var(--workspace-primary) !important;
+    background: var(--login-action-bg) !important;
+    font-size: 12px !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-card button:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card button:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .account-import-button:hover {
+    border-color: var(--login-action-line-hover) !important;
+    background: var(--login-action-bg-hover) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .saved-account-card button,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .new-account-card button,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .account-import-button {
+    border: 1px solid var(--login-action-line) !important;
+    border-width: 1px !important;
+    border-radius: 5px !important;
+    color: var(--workspace-primary) !important;
+    background: var(--login-action-bg) !important;
+    font-size: 12px !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .saved-account-card button:hover,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .new-account-card button:hover,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .account-import-button:hover {
+    border-color: var(--login-action-line-hover) !important;
+    background: var(--login-action-bg-hover) !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-card button,
+#root > .min-h-screen:has(.Green-logo--hero) .new-account-card button,
+#root > .min-h-screen:has(.Green-logo--hero) .account-import-button {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
 }
