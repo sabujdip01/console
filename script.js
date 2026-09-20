@@ -15489,7 +15489,7 @@ function p1({
             else {
                 const ut = await yn(sourceUrl, sourceKey, `messages/${sourceDeviceId}`, { orderBy: '"$key"', limitToLast: "150" });
                 const messages = Gu(ut), latest = messages[0], latestKey = latest ? `${latest.sender}|${latest.time}|${latest.text}` : "", previousKey = smsLatestRef.current.get(cacheKey);
-                previousKey && latestKey && previousKey !== latestKey && xt(`🔔 New SMS · ${latest.sender||"Unknown sender"}`), latestKey && smsLatestRef.current.set(cacheKey,latestKey), St = Xu(messages)
+                latestKey && smsLatestRef.current.set(cacheKey,latestKey), St = Xu(messages)
             }
             St = sanitizeSmsAnalysis(St), smsAnalysisCache.set(cacheKey,{ time:Date.now(), analysis:St });
             S(yt => yt.map(Yt => Yt.id === U ? { ...Yt,
