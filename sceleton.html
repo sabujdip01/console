@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console Screen Skeleton</title>
+    <style>
+        :root {
+            --page: #f4f3fb;
+            --surface: #ffffff;
+            --surface-soft: #fafaff;
+            --line: #e9e7f1;
+            --text: #282638;
+            --muted: #92909e;
+            --purple: #7565dd;
+            --purple-soft: #f0ecff;
+            --green: #13ad78;
+            --lavender-rail: #f1edff;
+            --shadow: 0 5px 18px rgba(65, 52, 111, .07);
+            color-scheme: light;
+        }
+
+        [data-theme="dark"] {
+            --page: #17181e;
+            --surface: #24252c;
+            --surface-soft: #2b2c35;
+            --line: #3b3c47;
+            --text: #f4f1ff;
+            --muted: #aaa5b9;
+            --purple: #b7a6ff;
+            --purple-soft: #38304f;
+            --green: #4bd5a2;
+            --lavender-rail: #211d31;
+            --shadow: 0 8px 22px rgba(0, 0, 0, .22);
+            color-scheme: dark;
+        }
+
+        * { box-sizing: border-box; }
+        html, body { min-height: 100%; }
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            color: var(--text);
+            background: var(--page);
+            font: 12px/1.4 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+        button, input, select { font: inherit; }
+        button { cursor: pointer; }
+
+        .console-screen { min-height: 100vh; }
+        .console-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            min-height: 68px;
+            padding: 12px 22px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+        .console-header__brand,
+        .console-header__actions,
+        .console-toolbar__metrics,
+        .console-toolbar__filters {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        .console-header__brand { flex: 0 0 auto; gap: 10px; }
+        .console-header__logo {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            place-items: center;
+            border-radius: 50%;
+            color: #fff;
+            background: var(--purple);
+            font-size: 9px;
+            font-weight: 900;
+        }
+        .console-header__title { font-size: 13px; font-weight: 800; white-space: nowrap; }
+        .console-header__search { width: min(420px, 32vw); margin-left: 14px; }
+        .console-header__search input {
+            width: 100%;
+            height: 38px;
+            padding: 0 14px;
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            outline: 0;
+            color: var(--text);
+            background: var(--surface-soft);
+        }
+        .console-header__actions { margin-left: auto; flex-wrap: nowrap; }
+        .theme-toggle, .logout-button, .live-clock, .connection-status {
+            min-height: 32px;
+            padding: 7px 11px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            color: var(--muted);
+            background: var(--surface-soft);
+            white-space: nowrap;
+        }
+        .connection-status { color: var(--green); font-weight: 800; }
+
+        .console-toolbar {
+            position: sticky;
+            top: 68px;
+            z-index: 19;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            min-height: 66px;
+            padding: 10px 22px;
+            overflow-x: auto;
+            background: var(--surface);
+            border-bottom: 1px solid var(--line);
+        }
+        .console-toolbar__filters { margin-left: auto; flex: 0 0 auto; }
+        .metric-card {
+            display: grid;
+            min-width: 76px;
+            gap: 1px;
+            padding: 7px 11px;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            color: var(--muted);
+            background: var(--surface-soft);
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+        }
+        .metric-card strong { color: var(--text); font-size: 17px; letter-spacing: 0; }
+        .filter, .refresh-button, .console-toolbar select {
+            min-height: 32px;
+            padding: 6px 11px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            color: var(--muted);
+            background: transparent;
+            white-space: nowrap;
+        }
+        .filter--active { color: #fff; border-color: var(--purple); background: var(--purple); }
+        .console-toolbar select, .refresh-button { border-color: var(--line); background: var(--surface-soft); }
+
+        .console-content {
+            display: grid;
+            grid-template-columns: minmax(0, 80%) minmax(240px, 20%);
+            min-height: calc(100vh - 134px);
+        }
+        .device-card-area { min-width: 0; padding: 18px 16px 34px; background: var(--surface); }
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .device-card {
+            min-width: 0;
+            min-height: 220px;
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+        .device-card--selected { border-color: #b9aaff; box-shadow: 0 0 0 2px var(--purple-soft), var(--shadow); }
+        .device-card__header { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 18px; }
+        .device-card__wifi {
+            display: grid;
+            width: 34px;
+            height: 34px;
+            flex: 0 0 34px;
+            place-items: center;
+            border: 1px solid #b9efd7;
+            border-radius: 50%;
+            color: var(--green);
+            background: #effcf6;
+            font-size: 8px;
+            font-weight: 900;
+        }
+        .device-card__identity { min-width: 0; flex: 1; }
+        .device-card h2 { overflow: hidden; margin: 3px 0 1px; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+        .device-card small { color: var(--muted); font: 9px ui-monospace, monospace; }
+        .device-card__menu { border: 0; color: var(--muted); background: transparent; }
+        .device-card__summary { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 10px; }
+        .device-card__summary div { display: grid; gap: 4px; min-width: 0; }
+        .device-card__summary span { color: var(--muted); font-size: 8px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+        .device-card__summary strong { overflow: hidden; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+        .device-card__balance { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 18px; padding: 10px; border-radius: 12px; color: var(--green); background: #eefbf6; font-size: 9px; }
+        .device-card__balance strong { color: var(--text); font-size: 13px; }
+        .device-card__status { margin-top: 14px; color: var(--green); font-weight: 800; }
+
+        .device-details {
+            position: sticky;
+            top: 134px;
+            align-self: start;
+            height: calc(100vh - 134px);
+            overflow: auto;
+            color: var(--text);
+            background: var(--lavender-rail);
+            border-left: 1px solid var(--line);
+        }
+        .device-details__header-row, .device-details__device-row { display: flex; align-items: center; gap: 9px; padding: 12px; }
+        .device-details__header-row { background: var(--purple-soft); border-bottom: 1px solid var(--line); }
+        .device-details__wifi { display: grid; width: 30px; height: 30px; flex: 0 0 30px; place-items: center; border: 1px solid #b9efd7; border-radius: 50%; color: var(--green); background: var(--surface); font-size: 8px; font-weight: 900; }
+        .device-details__name { min-width: 0; flex: 1; margin: 0; overflow: hidden; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+        .device-details__close, .device-details__delete { min-width: 30px; height: 30px; padding: 0 8px; border: 1px solid var(--line); border-radius: 9px; color: var(--purple); background: var(--surface); }
+        .device-details__device-row { justify-content: space-between; background: var(--surface); }
+        .device-details__battery { color: var(--green); font-weight: 900; }
+        .device-details__delete { color: #d85f6a; border-color: #f2c7cf; background: #fff1f3; }
+        .device-details__tabs { display: flex; background: var(--surface-soft); border-bottom: 1px solid var(--line); }
+        .device-details__tab { min-width: 0; flex: 1; padding: 13px 4px 11px; border: 0; border-bottom: 2px solid transparent; color: var(--muted); background: transparent; font-size: 10px; font-weight: 800; }
+        .device-details__tab--active { color: var(--purple); border-bottom-color: var(--purple); }
+        .device-details__body { padding: 16px; }
+        .detail-section h3 { margin: 0 0 14px; font-size: 12px; }
+        .detail-section dl { margin: 0; }
+        .detail-section dl > div { display: flex; justify-content: space-between; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+        .detail-section dt { color: var(--muted); }
+        .detail-section dd { margin: 0; font-weight: 800; text-align: right; }
+
+        @media (max-width: 1280px) { .device-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+        @media (max-width: 980px) { .device-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .console-header__search { width: 25vw; } }
+        @media (max-width: 780px) {
+            .console-header { position: sticky; flex-wrap: wrap; padding: 8px 12px 10px; }
+            .console-header__search { order: 3; width: 100%; margin-left: 0; }
+            .console-header__actions { gap: 5px; }
+            .console-header__actions .connection-status { display: none; }
+            .console-toolbar { top: 104px; flex-wrap: nowrap; padding: 8px 12px; }
+            .console-toolbar__metrics { display: none; }
+            .console-content { display: block; }
+            .device-card-area { padding: 14px 12px; }
+            .device-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .device-details { position: relative; top: 0; height: auto; min-height: 480px; border-left: 0; border-top: 1px solid var(--line); }
+        }
+        @media (max-width: 520px) { .device-grid { grid-template-columns: 1fr; } .live-clock { display: none; } }
+
+        .skeleton-map { display: grid; gap: 28px; min-height: 100vh; padding: 24px; background: var(--page); }
+        .skeleton-title, .skeleton-screen__label, .skeleton-region-label { color: var(--purple); font: 800 11px/1.2 ui-monospace, monospace; letter-spacing: .12em; }
+        .skeleton-title { padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+        .skeleton-screen { display: grid; gap: 10px; padding: 14px; border: 1px dashed var(--purple); border-radius: 12px; background: var(--surface); }
+        .skeleton-screen--login { max-width: 720px; }
+        .skeleton-screen--wide { min-height: 180px; }
+        .skeleton-screen--state { min-height: 120px; }
+        .skeleton-login-card { display: grid; gap: 10px; max-width: 520px; padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-soft); }
+        .skeleton-block { display: grid; min-height: 44px; place-items: center; padding: 14px; border: 1px dashed var(--line); border-radius: 9px; color: var(--muted); background: var(--surface-soft); font: 800 10px/1.4 ui-monospace, monospace; text-align: center; }
+        .skeleton-screen .console-header, .skeleton-screen .console-toolbar { margin-inline: -14px; }
+        .skeleton-screen .console-header { margin-top: -14px; }
+        .skeleton-screen .console-toolbar { top: 68px; }
+        .skeleton-screen .console-content { min-height: 380px; margin-inline: -14px; }
+        .skeleton-screen .device-card-area { padding: 14px; }
+        .skeleton-screen .device-details { top: 134px; height: auto; min-height: 380px; }
+        .skeleton-screen .device-card__summary { min-height: 46px; padding: 10px; border: 1px dashed var(--line); color: var(--muted); font: 800 9px/1.4 ui-monospace, monospace; }
+        .skeleton-screen .device-card__balance { justify-content: center; color: var(--muted); background: var(--surface-soft); font: 800 9px ui-monospace, monospace; }
+        .skeleton-screen .device-card__status { color: var(--muted); font: 800 9px ui-monospace, monospace; }
+        .skeleton-layout-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+        @media (max-width: 980px) { .skeleton-layout-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .skeleton-map { padding: 12px; } .skeleton-layout-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div id="skeleton-map" class="skeleton-map">
+        <div class="skeleton-title">GREEN PANEL / SCREEN MAP</div>
+
+        <section id="page-login" class="skeleton-screen skeleton-screen--login">
+            <div class="skeleton-screen__label">PAGE: LOGIN / FIREBASE CONNECT</div>
+            <div class="skeleton-login-card">
+                <div class="skeleton-block">DIV: LOGO</div>
+                <div class="skeleton-block">DIV: PAGE TITLE</div>
+                <div class="skeleton-block">DIV: SAVED ACCOUNTS LIST</div>
+                <div class="skeleton-block">DIV: NEW ACCOUNT FORM</div>
+                <div class="skeleton-block">DIV: CSV IMPORT</div>
+                <div class="skeleton-block">DIV: BULK FIREBASE INPUT</div>
+            </div>
+        </section>
+
+        <section id="page-dashboard" class="skeleton-screen">
+            <div class="skeleton-screen__label">PAGE: DEVICE DASHBOARD</div>
+            <header id="console-header" class="console-header">
+                <div class="console-header__brand"><div class="console-header__logo">DIV: LOGO</div><div class="console-header__title">DIV: BRAND NAME</div></div>
+                <div class="console-header__search">DIV: DEVICE SEARCH INPUT</div>
+                <div class="console-header__actions"><span>DIV: THEME TOGGLE</span><span>DIV: CONNECTION STATUS</span><span>DIV: LIVE CLOCK</span><span>DIV: LOGOUT</span></div>
+            </header>
+
+            <nav id="console-toolbar" class="console-toolbar">
+                <div class="console-toolbar__metrics"><div class="metric-card">DIV: TOTAL METRIC</div><div class="metric-card">DIV: ONLINE METRIC</div><div class="metric-card">DIV: OFFLINE METRIC</div><div class="metric-card">DIV: BANK SMS METRIC</div><div class="metric-card">DIV: CARD METRIC</div></div>
+                <div class="console-toolbar__filters"><span>DIV: FILTER TABS</span><span>DIV: SORT MENU</span><span>DIV: REFRESH BUTTON</span></div>
+            </nav>
+
+            <main id="console-content" class="console-content">
+                <section id="device-card-area" class="device-card-area"><div class="skeleton-region-label">SECTION: DEVICE CARD GRID / 80%</div><div class="device-grid">
+                    <article class="device-card device-card--selected"><div class="device-card__header"><div class="device-card__wifi">DIV: WIFI ICON</div><div class="device-card__identity">DIV: DEVICE NAME<br><small>DIV: DEVICE ID</small></div><div>DIV: MENU</div></div><div class="device-card__summary">DIV: ANDROID / BATTERY / NUMBER / NETWORK</div><div class="device-card__balance">DIV: BANK BALANCE</div><div class="device-card__status">DIV: ONLINE STATUS</div></article>
+                    <article class="device-card"><div class="device-card__header"><div class="device-card__wifi">DIV: WIFI ICON</div><div class="device-card__identity">DIV: DEVICE NAME<br><small>DIV: DEVICE ID</small></div><div>DIV: MENU</div></div><div class="device-card__summary">DIV: ANDROID / BATTERY / NUMBER / NETWORK</div><div class="device-card__balance">DIV: CARD OR BANK SUMMARY</div><div class="device-card__status">DIV: OFFLINE STATUS</div></article>
+                </div></section>
+
+                <aside id="device-details" class="device-details"><div class="skeleton-region-label">SECTION: DEVICE DETAILS / 20%</div><div class="device-details__header-row"><div class="device-details__wifi">DIV: WIFI</div><h2 class="device-details__name">DIV: DEVICE NAME</h2><div>DIV: CLOSE X</div></div><div class="device-details__device-row"><span>DIV: BATTERY %</span><span>DIV: DELETE BUTTON</span></div><nav class="device-details__tabs"><span>DIV: INFO TAB</span><span>DIV: BANK TAB</span><span>DIV: CARD TAB</span><span>DIV: SMS TAB</span><span>DIV: SEND TAB</span></nav><div class="device-details__body"><div class="skeleton-block">DIV: ACTIVE DETAIL TAB CONTENT</div></div></aside>
+            </main>
+        </section>
+
+        <section id="page-firebase-summary" class="skeleton-screen skeleton-screen--wide"><div class="skeleton-screen__label">PAGE: FIREBASE SUMMARY</div><div class="skeleton-block">SECTION: FIREBASE SUMMARY HEADER</div><div class="skeleton-block">DIV: FIREBASE SOURCE CARDS GRID</div><div class="skeleton-block">DIV: SELECTED FIREBASE BANK PANEL</div></section>
+        <section id="page-bank-balances" class="skeleton-screen skeleton-screen--wide"><div class="skeleton-screen__label">PAGE: CONSOLIDATED BANK BALANCES</div><div class="skeleton-block">SECTION: BALANCE SUMMARY HEADER</div><div class="skeleton-block">DIV: BANK SUMMARY GRID</div><div class="skeleton-block">DIV: BANK ACCOUNT LIST</div></section>
+        <section id="state-loading" class="skeleton-screen skeleton-screen--state"><div class="skeleton-screen__label">STATE: LOADING</div><div class="skeleton-block">DIV: LOADING SPINNER + STATUS MESSAGE</div><div class="skeleton-block">DIV: SKELETON CARD GRID</div></section>
+        <section id="state-empty" class="skeleton-screen skeleton-screen--state"><div class="skeleton-screen__label">STATE: EMPTY / NO DEVICES</div><div class="skeleton-block">DIV: EMPTY ICON</div><div class="skeleton-block">DIV: EMPTY TITLE + DESCRIPTION</div></section>
+        <section id="device-tab-layouts" class="skeleton-screen skeleton-screen--wide"><div class="skeleton-screen__label">DEVICE DETAIL TAB LAYOUTS</div><div class="skeleton-layout-grid"><div class="skeleton-block">TAB PANEL: INFO / DEVICE ROWS</div><div class="skeleton-block">TAB PANEL: BANK / BALANCE RECORDS</div><div class="skeleton-block">TAB PANEL: CARD / CARD RECORDS</div><div class="skeleton-block">TAB PANEL: SMS / SEARCH + MESSAGE LIST</div><div class="skeleton-block">TAB PANEL: SEND / SMS COMPOSER</div></div></section>
+    </div>
+</body>
+</html>
