@@ -6,10 +6,30 @@
 }
 
 /* Product workspace language: lavender canvas, white analytics surfaces, and compact type. */
+html:has(.console-toolbar),
+body:has(.console-toolbar) {
+    overflow-y: visible !important;
+}
+
+html,
+body,
+body > div,
+body > div > div,
+#root,
+#root > div,
+#root > div > div,
+#root > .min-h-screen:not(:has(.Green-logo--hero)),
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > div,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > div > div {
+    overflow: visible !important;
+    overflow-y: visible !important;
+    max-height: none !important;
+    height: auto !important;
+}
+
 #root > .min-h-screen:not(:has(.Green-logo--hero)) {
     isolation: isolate;
     position: relative;
-    overflow: visible;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
@@ -21,6 +41,12 @@
         linear-gradient(32deg, transparent 0 76%, rgba(72, 157, 143, .09) 76.2% 82%, transparent 82.2%),
         #f5f4fc !important;
     font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)),
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > div,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > div > div {
+    overflow: visible !important;
 }
 
 #root > .min-h-screen:not(:has(.Green-logo--hero))::before {
@@ -56,8 +82,12 @@
 }
 
 #root > .min-h-screen:not(:has(.Green-logo--hero)) > header {
-    width: min(100% - 32px, 1440px);
-    margin: 22px auto 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 60 !important;
+    width: 100% !important;
+    margin: 0 !important;
     overflow: hidden;
     border: 0 !important;
     border-radius: 18px 18px 0 0;
@@ -86,9 +116,11 @@
 }
 
 #root > .min-h-screen:not(:has(.Green-logo--hero)) .Green-logo--header img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 112% !important;
+    height: 112% !important;
+    max-width: none !important;
     border: 0 !important;
+    border-radius: 50% !important;
     object-fit: cover !important;
 }
 
@@ -149,9 +181,25 @@
 }
 
 #root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar {
-    position: sticky;
-    top: 68px;
-    z-index: 55;
+    position: fixed !important;
+    left: 0 !important;
+    top: 72px !important;
+    width: 100% !important;
+    z-index: 55 !important;
+    margin: 0 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + .console-toolbar {
+    position: fixed !important;
+    left: 0 !important;
+    top: 72px !important;
+    width: 100% !important;
+    z-index: 55 !important;
+    margin: 0 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main {
+    margin-top: 150px !important;
 }
 
 #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner > div:nth-child(2) {
@@ -204,13 +252,44 @@
 #root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div {
     flex-wrap: nowrap !important;
     gap: 10px !important;
-    overflow-x: auto;
+    overflow-x: scroll !important;
     overflow-y: hidden;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+    position: relative;
+}
+
+/* Keep a real horizontal thumb available even when a filter returns no devices. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: block;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
 }
 
 #root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div::-webkit-scrollbar {
-    display: none;
+    height: 7px;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div::-webkit-scrollbar-track {
+    background: #f1f2f5;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: #c1c4cc;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div::-webkit-scrollbar-track {
+    background: #292a31;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div::-webkit-scrollbar-thumb {
+    background: #626675;
 }
 
 #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chips,
@@ -221,6 +300,541 @@
 
 #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip {
     min-width: 92px;
+}
+
+/* Header bottom row metric surfaces: gray, green, red, teal, purple. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-total {
+    background: #f1f2f5 !important;
+    box-shadow: inset 0 0 0 1px #e1e3e9 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-online {
+    background: #eaf8f0 !important;
+    box-shadow: inset 0 0 0 1px #c9ead5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-offline {
+    background: #fff0f1 !important;
+    box-shadow: inset 0 0 0 1px #f1d1d5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-bank {
+    background: #dff5f2 !important;
+    box-shadow: inset 0 0 0 1px #9edbd3 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-cards {
+    background: #f1edff !important;
+    box-shadow: inset 0 0 0 1px #ddd4fa !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-total {
+    background: #2e3037 !important;
+    box-shadow: inset 0 0 0 1px #41434c !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-online {
+    background: #20372f !important;
+    box-shadow: inset 0 0 0 1px #315c4a !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-offline {
+    background: #3b2d32 !important;
+    box-shadow: inset 0 0 0 1px #644148 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-bank {
+    background: #1c4141 !important;
+    box-shadow: inset 0 0 0 1px #3c7771 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-cards {
+    background: #302947 !important;
+    box-shadow: inset 0 0 0 1px #514778 !important;
+}
+
+/* Metric cards keep their color accents while using dark, readable text. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip p,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip .metric-chip-icon {
+    color: #0d0e18 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-total .metric-chip-icon {
+    color: #69707c !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-online .metric-chip-icon {
+    color: #168653 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-offline .metric-chip-icon {
+    color: #c6545b !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-bank {
+    background: #fff0d7 !important;
+    box-shadow: inset 0 0 0 1px #f2c486 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-bank .metric-chip-icon {
+    color: #d97706 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-cards .metric-chip-icon {
+    color: #7652c8 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip p,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip .metric-chip-icon {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-total .metric-chip-icon {
+    color: #69707c !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-online .metric-chip-icon {
+    color: #168653 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-offline .metric-chip-icon {
+    color: #c6545b !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-bank {
+    background: #4a351f !important;
+    box-shadow: inset 0 0 0 1px #8b6030 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-bank .metric-chip-icon {
+    color: #d97706 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .metric-cards .metric-chip-icon {
+    color: #7652c8 !important;
+}
+
+/* Final title/value contrast override for the header metric cards. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip p:first-child,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip p:last-child {
+    color: #0d0e18 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip p:first-child,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip p:last-child {
+    color: #ffffff !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip .metric-title,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip .metric-value {
+    color: #0d0e18 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip .metric-title,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip .metric-value {
+    color: #0d0e18 !important;
+}
+
+/* Bottom filter chips mirror the metric-card palette. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-all,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-firebase,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-balances {
+    color: #69707c !important;
+    background: #f1f2f5 !important;
+    background-color: #f1f2f5 !important;
+    border-color: #e1e3e9 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-online {
+    color: #168653 !important;
+    background: #eaf8f0 !important;
+    background-color: #eaf8f0 !important;
+    border-color: #c9ead5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-offline {
+    color: #c6545b !important;
+    background: #fff0f1 !important;
+    background-color: #fff0f1 !important;
+    border-color: #f1d1d5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-upi {
+    color: #168b82 !important;
+    background: #dff5f2 !important;
+    background-color: #dff5f2 !important;
+    border-color: #9edbd3 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-bank {
+    color: #d97706 !important;
+    background: #fff0d7 !important;
+    background-color: #fff0d7 !important;
+    border-color: #f2c486 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-card {
+    color: #7652c8 !important;
+    background: #f1edff !important;
+    background-color: #f1edff !important;
+    border-color: #ddd4fa !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-all,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-firebase,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-balances {
+    color: #c7cad3 !important;
+    background: #2e3037 !important;
+    background-color: #2e3037 !important;
+    border-color: #41434c !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-online {
+    color: #65d39c !important;
+    background: #20372f !important;
+    background-color: #20372f !important;
+    border-color: #315c4a !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-offline {
+    color: #f08b94 !important;
+    background: #3b2d32 !important;
+    background-color: #3b2d32 !important;
+    border-color: #644148 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-upi {
+    color: #6ed8cf !important;
+    background: #1c4141 !important;
+    background-color: #1c4141 !important;
+    border-color: #3c7771 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-bank {
+    color: #f3b35d !important;
+    background: #4a351f !important;
+    background-color: #4a351f !important;
+    border-color: #8b6030 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-card {
+    color: #c3a8ff !important;
+    background: #302947 !important;
+    background-color: #302947 !important;
+    border-color: #514778 !important;
+}
+
+/* Match the specificity of the shared header button reset. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances {
+    background: #f1f2f5 !important;
+    background-color: #f1f2f5 !important;
+    border: 1px solid #e1e3e9 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online {
+    background: #eaf8f0 !important;
+    background-color: #eaf8f0 !important;
+    border: 1px solid #c9ead5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline {
+    background: #fff0f1 !important;
+    background-color: #fff0f1 !important;
+    border: 1px solid #f1d1d5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi {
+    background: #dff5f2 !important;
+    background-color: #dff5f2 !important;
+    border: 1px solid #9edbd3 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank {
+    background: #fff0d7 !important;
+    background-color: #fff0d7 !important;
+    border: 1px solid #f2c486 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card {
+    background: #f1edff !important;
+    background-color: #f1edff !important;
+    border: 1px solid #ddd4fa !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances {
+    background: #2e3037 !important;
+    background-color: #2e3037 !important;
+    border: 1px solid #41434c !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online {
+    background: #20372f !important;
+    background-color: #20372f !important;
+    border: 1px solid #315c4a !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline {
+    background: #3b2d32 !important;
+    background-color: #3b2d32 !important;
+    border: 1px solid #644148 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi {
+    background: #1c4141 !important;
+    background-color: #1c4141 !important;
+    border: 1px solid #3c7771 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank {
+    background: #4a351f !important;
+    background-color: #4a351f !important;
+    border: 1px solid #8b6030 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card {
+    background: #302947 !important;
+    background-color: #302947 !important;
+    border: 1px solid #514778 !important;
+}
+
+/* Keep the selected/hovered chip on its own palette instead of the generic purple active state. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances:hover {
+    background: #f1f2f5 !important;
+    background-color: #f1f2f5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online:hover {
+    background: #eaf8f0 !important;
+    background-color: #eaf8f0 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline:hover {
+    background: #fff0f1 !important;
+    background-color: #fff0f1 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi:hover {
+    background: #dff5f2 !important;
+    background-color: #dff5f2 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank:hover {
+    background: #fff0d7 !important;
+    background-color: #fff0d7 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card:hover {
+    background: #f1edff !important;
+    background-color: #f1edff !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances:hover {
+    background: #2e3037 !important;
+    background-color: #2e3037 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online:hover {
+    background: #20372f !important;
+    background-color: #20372f !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline:hover {
+    background: #3b2d32 !important;
+    background-color: #3b2d32 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi:hover {
+    background: #1c4141 !important;
+    background-color: #1c4141 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank:hover {
+    background: #4a351f !important;
+    background-color: #4a351f !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card:hover {
+    background: #302947 !important;
+    background-color: #302947 !important;
+}
+
+/* Light theme chip contrast: pale idle state, deep matching hover/selected state. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances {
+    color: #4b5260 !important;
+    background: #f1f2f5 !important;
+    background-color: #f1f2f5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online {
+    color: #168653 !important;
+    background: #eaf8f0 !important;
+    background-color: #eaf8f0 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline {
+    color: #b74450 !important;
+    background: #fff0f1 !important;
+    background-color: #fff0f1 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi {
+    color: #12766f !important;
+    background: #dff5f2 !important;
+    background-color: #dff5f2 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank {
+    color: #a85b00 !important;
+    background: #fff0d7 !important;
+    background-color: #fff0d7 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card {
+    color: #6240ae !important;
+    background: #f1edff !important;
+    background-color: #f1edff !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all[class*="bg-red-600"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase[class*="bg-red-600"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances[class*="bg-emerald-600"] {
+    color: #ffffff !important;
+    background: #69707c !important;
+    background-color: #69707c !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #168653 !important;
+    background-color: #168653 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #c6545b !important;
+    background-color: #c6545b !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #168b82 !important;
+    background-color: #168b82 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank[class*="bg-emerald-600"] {
+    color: #ffffff !important;
+    background: #d97706 !important;
+    background-color: #d97706 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card[class*="bg-purple-600"] {
+    color: #ffffff !important;
+    background: #7652c8 !important;
+    background-color: #7652c8 !important;
+}
+
+/* Idle chips use light tints; hover and selected states use deeper matching shades. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all[class*="bg-red-600"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase[class*="bg-red-600"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances[class*="bg-emerald-600"] {
+    background: #d8dbe2 !important;
+    background-color: #d8dbe2 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online[class*="bg-red-600"] {
+    background: #c3e6d0 !important;
+    background-color: #c3e6d0 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline[class*="bg-red-600"] {
+    background: #f2c1c7 !important;
+    background-color: #f2c1c7 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi[class*="bg-red-600"] {
+    background: #b4e1db !important;
+    background-color: #b4e1db !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank[class*="bg-emerald-600"] {
+    background: #f0c178 !important;
+    background-color: #f0c178 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card[class*="bg-purple-600"] {
+    background: #d5c8fa !important;
+    background-color: #d5c8fa !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all[class*="bg-red-600"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase[class*="bg-red-600"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances[class*="bg-emerald-600"] {
+    background: #444750 !important;
+    background-color: #444750 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online[class*="bg-red-600"] {
+    background: #2d5943 !important;
+    background-color: #2d5943 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline[class*="bg-red-600"] {
+    background: #633c45 !important;
+    background-color: #633c45 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi[class*="bg-red-600"] {
+    background: #286461 !important;
+    background-color: #286461 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank[class*="bg-emerald-600"] {
+    background: #745021 !important;
+    background-color: #745021 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card:hover,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card[class*="bg-purple-600"] {
+    background: #4b3d70 !important;
+    background-color: #4b3d70 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip .metric-title,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip .metric-value {
+    color: #ffffff !important;
 }
 
 #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar > div > div:last-child {
@@ -701,3 +1315,236 @@
 }
 
 [data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group,
+
+/* Final filter-chip colors stay visible in every state without changing header width. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter {
+    box-sizing: border-box !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-all,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-firebase,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-balances {
+    color: #69707c !important;
+    background: #f1f2f5 !important;
+    border-color: #e1e3e9 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-online {
+    color: #168653 !important;
+    background: #eaf8f0 !important;
+    border-color: #c9ead5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-offline {
+    color: #c6545b !important;
+    background: #fff0f1 !important;
+    border-color: #f1d1d5 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-upi {
+    color: #168b82 !important;
+    background: #dff5f2 !important;
+    border-color: #9edbd3 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-bank {
+    color: #d97706 !important;
+    background: #fff0d7 !important;
+    border-color: #f2c486 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-card {
+    color: #7652c8 !important;
+    background: #f1edff !important;
+    border-color: #ddd4fa !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-all,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-firebase,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-balances {
+    color: #c7cad3 !important;
+    background: #2e3037 !important;
+    border-color: #41434c !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-online {
+    color: #65d39c !important;
+    background: #20372f !important;
+    border-color: #315c4a !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-offline {
+    color: #f08b94 !important;
+    background: #3b2d32 !important;
+    border-color: #644148 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-upi {
+    color: #6ed8cf !important;
+    background: #1c4141 !important;
+    border-color: #3c7771 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-bank {
+    color: #f3b35d !important;
+    background: #4a351f !important;
+    border-color: #8b6030 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-card {
+    color: #c3a8ff !important;
+    background: #302947 !important;
+    border-color: #514778 !important;
+}
+
+/* Final light-theme chip states: pale idle, deep matching hover/selected. */
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-all,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-firebase,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-balances {
+    color: #4b5260 !important;
+    background: #f1f2f5 !important;
+    background-color: #f1f2f5 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-online {
+    color: #168653 !important;
+    background: #eaf8f0 !important;
+    background-color: #eaf8f0 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-offline {
+    color: #b74450 !important;
+    background: #fff0f1 !important;
+    background-color: #fff0f1 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-upi {
+    color: #12766f !important;
+    background: #dff5f2 !important;
+    background-color: #dff5f2 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-bank {
+    color: #a85b00 !important;
+    background: #fff0d7 !important;
+    background-color: #fff0d7 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-card {
+    color: #6240ae !important;
+    background: #f1edff !important;
+    background-color: #f1edff !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-all:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-firebase:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-balances:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-all[class*="bg-red-600"],
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-firebase[class*="bg-red-600"],
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-balances[class*="bg-emerald-600"] {
+    color: #ffffff !important;
+    background: #69707c !important;
+    background-color: #69707c !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-online:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-online[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #168653 !important;
+    background-color: #168653 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-offline:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-offline[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #c6545b !important;
+    background-color: #c6545b !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-upi:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-upi[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #168b82 !important;
+    background-color: #168b82 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-bank:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-bank[class*="bg-emerald-600"] {
+    color: #ffffff !important;
+    background: #d97706 !important;
+    background-color: #d97706 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-card:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-filter-card[class*="bg-purple-600"] {
+    color: #ffffff !important;
+    background: #7652c8 !important;
+    background-color: #7652c8 !important;
+}
+
+/* Match the higher-specificity header selector for final light hover/selected states. */
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-all[class*="bg-red-600"],
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-firebase[class*="bg-red-600"],
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-balances[class*="bg-emerald-600"] {
+    color: #ffffff !important;
+    background: #69707c !important;
+    background-color: #69707c !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-online[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #168653 !important;
+    background-color: #168653 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-offline[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #c6545b !important;
+    background-color: #c6545b !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-upi[class*="bg-red-600"] {
+    color: #ffffff !important;
+    background: #168b82 !important;
+    background-color: #168b82 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-bank[class*="bg-emerald-600"] {
+    color: #ffffff !important;
+    background: #d97706 !important;
+    background-color: #d97706 !important;
+}
+
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card:hover,
+html[data-theme="light"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b .console-filter-card[class*="bg-purple-600"] {
+    color: #ffffff !important;
+    background: #7652c8 !important;
+    background-color: #7652c8 !important;
+}
+
+/* Top-row chips use the same login-screen border palette. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner input[type="text"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions .connection-status,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions .india-live-clock,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions button {
+    border: 1px solid var(--login-action-line) !important;
+    border-color: var(--login-action-line) !important;
+    box-sizing: border-box !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner input[type="text"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions .connection-status,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions .india-live-clock,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions button {
+    border: 1px solid var(--login-action-line) !important;
+    border-color: var(--login-action-line) !important;
+}

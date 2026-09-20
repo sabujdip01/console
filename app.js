@@ -22,6 +22,29 @@ function y1() {
 Y0.createRoot(document.getElementById("root")).render(r.jsx(y1, {}));
 
 (() => {
+    const forceStickyHeader = () => {
+        const root = document.querySelector("#root");
+        const shell = document.querySelector("#root > .min-h-screen");
+        const outer = document.body.firstElementChild;
+        [root, shell, outer].forEach(el => {
+            if (!el) return;
+            el.style.setProperty("overflow", "visible", "important");
+            el.style.setProperty("overflow-y", "visible", "important");
+        });
+
+        const header = document.querySelector("header");
+        if (header) {
+            header.style.setProperty("position", "fixed", "important");
+            header.style.setProperty("top", "0", "important");
+            header.style.setProperty("z-index", "60", "important");
+            header.style.setProperty("left", "0", "important");
+            header.style.setProperty("transform", "none", "important");
+        }
+    };
+
+    forceStickyHeader();
+    new MutationObserver(forceStickyHeader).observe(document.body, { childList: true, subtree: true });
+
     const savedTheme = localStorage.getItem("green-panel-theme");
     const initialTheme = savedTheme === "dark" || savedTheme === "light" ? savedTheme : "light";
     const root = document.documentElement;

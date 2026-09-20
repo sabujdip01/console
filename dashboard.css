@@ -43,10 +43,14 @@
 
     #root { position: relative; z-index: 1; }
     #root > .min-h-screen {
+        overflow: visible !important;
         background:
             radial-gradient(circle at 88% 6%, rgba(255, 126, 20, .20), transparent 27%),
             radial-gradient(circle at 7% 95%, rgba(202, 45, 27, .13), transparent 28%),
             linear-gradient(145deg, #071126 0%, #050816 52%, #100a0b 100%) !important;
+    }
+    #root > .min-h-screen > div {
+        overflow: visible !important;
     }
 
     #root > .min-h-screen::after {
