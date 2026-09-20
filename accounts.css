@@ -34,10 +34,19 @@
     min-height: 72px !important;
     margin-bottom: 18px !important;
     border: 0 !important;
-    border-radius: 12px !important;
+    overflow: hidden;
+    border-radius: 50% !important;
     background: #17171b !important;
     box-shadow: 0 10px 24px rgba(30, 30, 40, .14) !important;
     animation: none !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .Green-logo--hero img {
+    width: 112% !important;
+    height: 112% !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+    transform: scale(1.03);
 }
 
 #root > .min-h-screen:has(.Green-logo--hero) h1 {
@@ -505,5 +514,51 @@ label:hover {
     color: #e5d9ff;
     background: #292431;
     box-shadow: 0 4px 14px rgba(0, 0, 0, .24);
+}
+
+/* Keep the share dialog aligned with the active application theme. */
+.share-connection-popup {
+    color: var(--workspace-ink) !important;
+    background: var(--workspace-surface) !important;
+    border: 1px solid var(--workspace-line) !important;
+    box-shadow: 0 24px 70px rgba(30, 30, 45, .18) !important;
+}
+
+.share-connection-popup > div:first-child > div:first-child > div {
+    color: var(--workspace-primary) !important;
+    background: var(--workspace-soft) !important;
+    border-color: var(--workspace-line) !important;
+}
+
+.share-connection-popup .text-foreground {
+    color: var(--workspace-ink) !important;
+}
+
+.share-connection-popup .text-muted-foreground {
+    color: var(--workspace-muted) !important;
+}
+
+.share-connection-popup > div:nth-child(2) {
+    color: var(--workspace-muted) !important;
+    background: var(--workspace-soft) !important;
+    border-color: var(--workspace-line) !important;
+}
+
+.share-connection-popup > div:nth-child(2) button {
+    color: var(--workspace-primary) !important;
+    background: color-mix(in srgb, var(--workspace-primary) 12%, var(--workspace-surface)) !important;
+    border-color: color-mix(in srgb, var(--workspace-primary) 28%, var(--workspace-line)) !important;
+}
+
+.share-connection-popup > div:nth-child(3) {
+    color: #8a6500 !important;
+    background: #fff8df !important;
+    border-color: #eed58a !important;
+}
+
+[data-theme="dark"] .share-connection-popup > div:nth-child(3) {
+    color: #f0cf73 !important;
+    background: #332d1d !important;
+    border-color: #66552a !important;
 }
 

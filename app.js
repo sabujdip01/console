@@ -36,7 +36,6 @@ Y0.createRoot(document.getElementById("root")).render(r.jsx(y1, {}));
         icon.setAttribute("aria-hidden", "true");
         toggle.replaceChildren(icon, document.createTextNode(theme === "dark" ? "Dark" : "Light"));
         toggle.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
-        toggle.title = toggle.getAttribute("aria-label");
         localStorage.setItem("green-panel-theme", theme);
     };
 
@@ -51,7 +50,11 @@ Y0.createRoot(document.getElementById("root")).render(r.jsx(y1, {}));
         if (actions && connection) {
             if (toggle.parentElement !== actions) actions.insertBefore(toggle, connection);
         } else if (savedAccountActions) {
-            if (toggle.parentElement !== savedAccountActions) savedAccountActions.appendChild(toggle);
+            const deleteAll = savedAccountActions.querySelector(".delete-all-accounts");
+            if (deleteAll && (toggle.parentElement !== savedAccountActions || toggle.nextElementSibling !== deleteAll)) {
+                savedAccountActions.insertBefore(toggle, deleteAll);
+            }
+            else if (toggle.parentElement !== savedAccountActions) savedAccountActions.appendChild(toggle);
         } else if (login && toggle.parentElement !== document.body) {
             document.body.appendChild(toggle);
         }

@@ -286,8 +286,11 @@ Error: ${_t}`)
                         className: "flex items-center justify-between mb-4",
                         children: [r.jsxs("div", {
                             className: "flex items-center gap-2",
-                            children: [r.jsx(bs, {
-                                className: "w-4 h-4 text-muted-foreground"
+                            children: [r.jsx("span", {
+                                className: "saved-accounts-icon",
+                                children: r.jsx(bs, {
+                                    className: "w-3.5 h-3.5"
+                                })
                             }), r.jsx("span", {
                                 className: "text-sm font-semibold text-foreground",
                                 children: "Saved Accounts"
@@ -306,7 +309,7 @@ Error: ${_t}`)
                             })]
                         })]
                     }), r.jsx("div", {
-                        className: "space-y-2 max-h-52 overflow-y-auto pr-1 mb-4",
+                        className: "saved-accounts-list space-y-2 max-h-52 overflow-y-auto mb-4",
                         children: tt.length === 0 ? r.jsxs("div", {
                             className: "text-center py-8 text-muted-foreground text-sm",
                             children: [r.jsx(bs, {
@@ -582,7 +585,7 @@ Error: ${_t}`)
             },
             onClick: () => E(""),
             children: r.jsxs("div", {
-                className: "w-full max-w-md glass-card rounded-2xl p-6 shadow-2xl shadow-black/80 animate-fade-up",
+                className: "share-connection-popup w-full max-w-md glass-card rounded-2xl p-6 shadow-2xl shadow-black/80 animate-fade-up",
                 onClick: _ => _.stopPropagation(),
                 children: [r.jsxs("div", {
                     className: "flex items-center justify-between mb-5",

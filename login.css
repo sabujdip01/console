@@ -89,7 +89,11 @@
 }
 
 #root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions > span {
-    transform: translateX(-20px);
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    transform: none;
 }
 
 #root > .min-h-screen:has(.Green-logo--hero) .glass-card button[class*="border-dashed"],
@@ -370,6 +374,48 @@
     box-shadow: none;
     font-size: 11px;
     font-weight: 700;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .delete-all-accounts,
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions .theme-toggle {
+    height: 34px;
+    min-height: 34px;
+    box-sizing: border-box;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions {
+    min-height: 34px;
+    gap: 8px;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card > div.flex.items-center.justify-between {
+    align-items: center !important;
+    min-height: 34px;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card > div.flex.items-center.justify-between > div:first-child {
+    min-height: 34px;
+    margin-bottom: 0 !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-accounts-list {
+    padding-right: 0 !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-accounts-icon {
+    width: 28px;
+    height: 28px;
+    display: inline-grid;
+    flex: 0 0 28px;
+    place-items: center;
+    border-radius: 50%;
+    color: #6d5bb1;
+    background: #f0eaff;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .saved-accounts-icon {
+    color: #c0b2ff;
+    background: #352f4a;
 }
 
 #root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions .theme-toggle:hover {
