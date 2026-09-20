@@ -16032,8 +16032,11 @@ Y0.createRoot(document.getElementById("root")).render(r.jsx(y1, {}));
         const actions = document.querySelector(".dashboard-header-actions");
         const connection = actions?.querySelector(".connection-status");
         const login = document.querySelector("#root > .min-h-screen:has(.Green-logo--hero)");
+        const savedAccountActions = login?.querySelector(".saved-account-actions");
         if (actions && connection) {
             if (toggle.parentElement !== actions) actions.insertBefore(toggle, connection);
+        } else if (savedAccountActions) {
+            if (toggle.parentElement !== savedAccountActions) savedAccountActions.appendChild(toggle);
         } else if (login && toggle.parentElement !== document.body) {
             document.body.appendChild(toggle);
         }

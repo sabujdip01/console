@@ -4264,8 +4264,15 @@
     a:focus-visible,
     input:focus-visible,
     select:focus-visible {
-        outline: 2px solid #ff9a35;
+        outline: 2px solid #9a87ee;
         outline-offset: 3px;
+    }
+
+    [data-theme="dark"] button:focus-visible,
+    [data-theme="dark"] a:focus-visible,
+    [data-theme="dark"] input:focus-visible,
+    [data-theme="dark"] select:focus-visible {
+        outline-color: #b19fff;
     }
 
     ::selection { background: #ff8c27; color: #071126; }
@@ -8104,4 +8111,43 @@ label:hover {
 [data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) > .relative.z-10 .glass-card input.w-full:focus-visible {
     border: 1px solid #b19fff !important;
     box-shadow: 0 0 0 3px rgba(177, 159, 255, .22) !important;
+}
+
+/* Keep the saved-account theme control alongside its destructive action. */
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions .theme-toggle {
+    position: static;
+    z-index: auto;
+    width: auto;
+    min-height: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 10px;
+    border: 1px solid #e1d9f5 !important;
+    border-radius: 5px;
+    color: #6d5bb1;
+    background: #f7f4ff;
+    box-shadow: none;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions .theme-toggle:hover {
+    color: #5d4aa5;
+    border-color: #cbbdf1 !important;
+    background: #eeeaff;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions .theme-toggle {
+    border-color: #514778 !important;
+    color: #c0b2ff;
+    background: #2b273c;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions .theme-toggle:hover {
+    color: #e0d8ff;
+    border-color: #7667aa !important;
+    background: #352f4a;
 }
