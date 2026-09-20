@@ -1,0 +1,703 @@
+@media (max-width: 620px) {
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Product workspace language: lavender canvas, white analytics surfaces, and compact type. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) {
+    isolation: isolate;
+    position: relative;
+    overflow: visible;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    position: relative;
+    background:
+        radial-gradient(circle at 8% 0%, rgba(193, 183, 246, .34), transparent 30%),
+        radial-gradient(circle at 96% 92%, rgba(176, 226, 222, .28), transparent 26%),
+        linear-gradient(118deg, transparent 0 22%, rgba(126, 111, 211, .10) 22.2% 27%, transparent 27.2%),
+        linear-gradient(32deg, transparent 0 76%, rgba(72, 157, 143, .09) 76.2% 82%, transparent 82.2%),
+        #f5f4fc !important;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero))::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -12%;
+    right: -5%;
+    width: 34%;
+    height: 62%;
+    border: 1px solid rgba(102, 87, 177, .13);
+    border-radius: 28px;
+    background: rgba(128, 113, 199, .045);
+    transform: rotate(18deg);
+    box-shadow: 0 0 0 18px rgba(102, 87, 177, .035), 0 0 0 36px rgba(102, 87, 177, .022);
+    pointer-events: none;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero))::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -20%;
+    left: -5%;
+    width: 30%;
+    height: 48%;
+    border: 1px solid rgba(44, 139, 122, .14);
+    border-radius: 50%;
+    background: rgba(72, 157, 143, .05);
+    transform: rotate(-18deg);
+    box-shadow: 0 0 0 20px rgba(44, 139, 122, .03), 0 0 0 40px rgba(44, 139, 122, .018);
+    pointer-events: none;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header {
+    width: min(100% - 32px, 1440px);
+    margin: 22px auto 0;
+    overflow: hidden;
+    border: 0 !important;
+    border-radius: 18px 18px 0 0;
+    background: rgba(255, 255, 255, .91) !important;
+    box-shadow: 0 10px 32px rgba(87, 75, 140, .08) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner {
+    min-height: 68px !important;
+    padding: 14px 22px !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .Green-logo--header {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    border: 0 !important;
+    background: #8275db !important;
+    box-shadow: none !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner > div:first-child > span {
+    color: #1f1d38 !important;
+    font-size: 14px !important;
+    letter-spacing: -.03em !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .Green-logo--header img {
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+    object-fit: cover !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-brand {
+    cursor: pointer;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-brand:focus-visible {
+    outline: 2px solid #9a87ee;
+    outline-offset: 4px;
+    border-radius: 10px;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .connection-status > span:first-child {
+    --connected-off: #f7f7fb;
+    animation: connected-brightness 6s linear infinite;
+}
+
+@keyframes connected-brightness {
+    0% { background-color: #22c55e; box-shadow: 0 0 6px #22c55e; }
+    5% { background-color: color-mix(in srgb, #22c55e 90%, var(--connected-off)); box-shadow: none; }
+    10% { background-color: color-mix(in srgb, #22c55e 80%, var(--connected-off)); box-shadow: none; }
+    15% { background-color: color-mix(in srgb, #22c55e 70%, var(--connected-off)); box-shadow: none; }
+    20% { background-color: color-mix(in srgb, #22c55e 60%, var(--connected-off)); box-shadow: none; }
+    25% { background-color: color-mix(in srgb, #22c55e 50%, var(--connected-off)); box-shadow: none; }
+    30% { background-color: color-mix(in srgb, #22c55e 40%, var(--connected-off)); box-shadow: none; }
+    35% { background-color: color-mix(in srgb, #22c55e 30%, var(--connected-off)); box-shadow: none; }
+    40% { background-color: color-mix(in srgb, #22c55e 20%, var(--connected-off)); box-shadow: none; }
+    45% { background-color: color-mix(in srgb, #22c55e 10%, var(--connected-off)); box-shadow: none; }
+    50% { background-color: var(--connected-off); box-shadow: none; }
+    55% { background-color: color-mix(in srgb, #22c55e 10%, var(--connected-off)); box-shadow: none; }
+    60% { background-color: color-mix(in srgb, #22c55e 20%, var(--connected-off)); box-shadow: none; }
+    65% { background-color: color-mix(in srgb, #22c55e 30%, var(--connected-off)); box-shadow: none; }
+    70% { background-color: color-mix(in srgb, #22c55e 40%, var(--connected-off)); box-shadow: none; }
+    75% { background-color: color-mix(in srgb, #22c55e 50%, var(--connected-off)); box-shadow: none; }
+    80% { background-color: color-mix(in srgb, #22c55e 60%, var(--connected-off)); box-shadow: none; }
+    85% { background-color: color-mix(in srgb, #22c55e 70%, var(--connected-off)); box-shadow: none; }
+    90% { background-color: color-mix(in srgb, #22c55e 80%, var(--connected-off)); box-shadow: none; }
+    95% { background-color: color-mix(in srgb, #22c55e 90%, var(--connected-off)); box-shadow: none; }
+    100% { background-color: #22c55e; box-shadow: 0 0 6px #22c55e; }
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .connection-status > span:first-child {
+    --connected-off: #292a31;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 60 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .theme-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar {
+    position: sticky;
+    top: 68px;
+    z-index: 55;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner > div:nth-child(2) {
+    max-width: 420px !important;
+    margin-left: 22px;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner input[type="text"] {
+    height: 38px !important;
+    border: 0 !important;
+    border-radius: 11px !important;
+    background: #f7f7fb !important;
+    box-shadow: inset 0 0 0 1px #f0eff6 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner input[type="text"]:focus,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner input[type="text"]:focus-visible {
+    border: 1px solid #9a87ee !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(154, 135, 238, .18) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions .connection-status,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions .india-live-clock,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions button {
+    border: 0 !important;
+    border-radius: 10px !important;
+    background: #f7f7fb !important;
+    box-shadow: none !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions button:hover {
+    background: #eeeafd !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b {
+    width: min(100% - 32px, 1440px);
+    margin: 0 auto;
+    border: 0 !important;
+    background: rgba(255, 255, 255, .91) !important;
+    box-shadow: 0 5px 20px rgba(87, 75, 140, .045) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b > div {
+    min-height: 66px !important;
+    padding: 10px 22px !important;
+}
+
+/* Keep metrics, filters, sort, and refresh on one horizontal toolbar track. */
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div {
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > .console-toolbar > div::-webkit-scrollbar {
+    display: none;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chips,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar > div > div:last-child {
+    flex: 0 0 auto;
+    flex-wrap: nowrap !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-metric-chip {
+    min-width: 92px;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar > div > div:last-child {
+    margin-left: auto;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b p.text-lg {
+    font-size: 19px !important;
+    color: #27223f !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b p[class*="uppercase"] {
+    color: #9a96aa !important;
+    font-size: 9px !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b button {
+    min-height: 30px;
+    padding: 0 12px !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    color: #858197 !important;
+    background: transparent !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b button:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b button[class*="bg-red-600"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b button[class*="bg-emerald-600"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b button[class*="bg-purple-600"] {
+    color: #fff !important;
+    background: #7c6bdd !important;
+    box-shadow: 0 5px 12px rgba(124, 107, 221, .22) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b select,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b button:last-child {
+    border: 0 !important;
+    border-radius: 10px !important;
+    background: #f7f7fb !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar select {
+    min-width: 160px;
+    height: 34px;
+    padding: 0 32px 0 12px !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    appearance: none;
+    color: #625d75 !important;
+    background-color: #f7f7fb !important;
+    background-image: linear-gradient(45deg, transparent 50%, #817a95 50%), linear-gradient(135deg, #817a95 50%, transparent 50%);
+    background-position: calc(100% - 16px) 14px, calc(100% - 11px) 14px;
+    background-size: 5px 5px, 5px 5px;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 0 0 1px #eceaf3 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar select:focus,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar select:focus-visible {
+    border: 1px solid #9a87ee !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(154, 135, 238, .18) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar select option {
+    color: #302b49;
+    background: #fff;
+}
+
+.console-sort-dropdown {
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 160px;
+}
+
+.console-sort-trigger {
+    width: 100%;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 12px !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    color: #625d75 !important;
+    background: #f7f7fb !important;
+    box-shadow: inset 0 0 0 1px #eceaf3 !important;
+    font-size: 12px !important;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.console-sort-trigger:hover,
+.console-sort-trigger[aria-expanded="true"] {
+    color: #5d4db7 !important;
+    background: #f0eaff !important;
+    box-shadow: inset 0 0 0 1px #d9d0fb !important;
+}
+
+.console-sort-trigger i {
+    font-size: 10px;
+    transition: transform .16s ease;
+}
+
+.console-sort-trigger[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.console-sort-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    z-index: 1000;
+    display: none;
+    width: 100%;
+    padding: 5px;
+    border: 0;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(63, 48, 112, .16), inset 0 0 0 1px #eceaf3;
+}
+
+.console-sort-menu.open {
+    display: grid;
+    gap: 2px;
+}
+
+.console-sort-menu button {
+    width: 100%;
+    min-height: 30px;
+    padding: 0 9px !important;
+    border: 0 !important;
+    border-radius: 7px !important;
+    color: #716b83 !important;
+    background: transparent !important;
+    text-align: left;
+    font-size: 11px !important;
+    font-weight: 600;
+}
+
+.console-sort-menu button:hover,
+.console-sort-menu button.selected {
+    color: #5d4db7 !important;
+    background: #f0eaff !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar > div > div:last-child > button:last-child {
+    width: 34px;
+    height: 34px;
+    display: inline-grid;
+    flex: 0 0 34px;
+    place-items: center;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    color: #766f8b !important;
+    background: #f7f7fb !important;
+    box-shadow: inset 0 0 0 1px #eceaf3 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar > div > div:last-child > button:last-child:hover {
+    color: #6527e8 !important;
+    background: #f0eaff !important;
+    box-shadow: inset 0 0 0 1px #d9d0fb !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main {
+    width: min(100% - 32px, 1440px);
+    padding: 22px !important;
+    border-radius: 0 0 18px 18px;
+    background: rgba(255, 255, 255, .72) !important;
+    box-shadow: 0 20px 48px rgba(87, 75, 140, .07) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] {
+    gap: 14px !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group {
+    min-height: 220px;
+    padding: 17px !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: #fff !important;
+    box-shadow: 0 4px 13px rgba(60, 48, 105, .055) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group:hover {
+    transform: translateY(-2px);
+    background: #fff !important;
+    box-shadow: 0 12px 25px rgba(91, 73, 151, .12) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group h3 {
+    color: #28233f !important;
+    font-size: 13px !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group [class*="text-[#444]"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group [class*="text-[#555]"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group [class*="text-[#aaa]"] {
+    color: #9692a2 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group [class*="bg-emerald-950"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group [class*="bg-purple-950"] {
+    border: 0 !important;
+    background: #effaf7 !important;
+}
+
+/* Desktop workspace: keep the device grid visible beside the selected device. */
+@media (min-width: 781px) {
+    html,
+    body,
+    #root,
+    #root > .min-h-screen {
+        overflow-x: hidden !important;
+    }
+
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) > main {
+        width: 80% !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: 20% !important;
+        box-sizing: border-box;
+    }
+
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] {
+        width: 100%;
+    }
+
+    .device-detail-backdrop {
+        display: none !important;
+    }
+
+    .device-detail-panel {
+        position: fixed !important;
+        inset: 0 0 0 auto !important;
+        width: 20vw !important;
+        max-width: none !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        border-left: 1px solid #e2e2e7 !important;
+        box-shadow: -10px 0 30px rgba(30, 30, 45, .08) !important;
+    }
+
+    .device-detail-panel .device-detail-tabs {
+        overflow-x: hidden !important;
+        flex-wrap: wrap;
+    }
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-section,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .bank-consolidated-wrap {
+    border: 0 !important;
+    border-radius: 15px !important;
+    background: #fff !important;
+    box-shadow: 0 5px 16px rgba(60, 48, 105, .06) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-head h2,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .bank-consolidated-head h2 {
+    color: #28233f !important;
+    font-size: 16px !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-card-shell,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-card,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .bank-consolidated-card {
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: #fafafd !important;
+    box-shadow: inset 0 0 0 1px #f1eff7 !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-card-shell:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-card-shell.selected,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-card:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-card.selected,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .bank-consolidated-card:hover,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main .bank-consolidated-card.selected {
+    background: #f1efff !important;
+    box-shadow: inset 0 0 0 1px #d9d0fb, 0 7px 16px rgba(96, 78, 170, .08) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .quick-add-firebase-toggle,
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .balance-scope-toggle button.active {
+    border: 0 !important;
+    border-radius: 9px !important;
+    color: #fff !important;
+    background: #7c6bdd !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .device-detail-panel {
+    border: 0 !important;
+    border-radius: 18px 0 0 18px;
+    background: #fff !important;
+    box-shadow: -18px 0 48px rgba(65, 52, 111, .16) !important;
+}
+
+/* Desktop: reserve 20% of the viewport for the active OTP/device drawer. */
+@media (min-width: 781px) {
+    #root:has(.device-detail-panel) > .min-h-screen:not(:has(.Green-logo--hero)) {
+        width: 100vw !important;
+        max-width: none !important;
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+
+    #root:has(.device-detail-panel) .device-detail-panel {
+        width: 20vw !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        border-radius: 16px 0 0 16px !important;
+    }
+
+    #root:has(.device-detail-panel) .device-detail-panel .device-detail-header,
+    #root:has(.device-detail-panel) .device-detail-panel .device-detail-body,
+    #root:has(.device-detail-panel) .device-detail-panel .device-detail-tabs {
+        min-width: 0;
+    }
+}
+
+/* Mobile: the active device remains a focused popup over one full-width card column. */
+@media (max-width: 780px) {
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) .Green-logo--header {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    #root:has(.device-detail-panel) .device-detail-panel {
+        width: calc(100vw - 24px) !important;
+        max-width: none !important;
+        height: calc(100dvh - 24px) !important;
+        margin: 12px 12px 12px auto !important;
+        border-radius: 16px !important;
+    }
+
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .device-detail-header {
+    border: 0 !important;
+    background: #fff !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .device-detail-tabs {
+    border: 0 !important;
+    background: #fafafd !important;
+}
+
+@media (max-width: 780px) {
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) > header,
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b,
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) > main {
+        width: 100%;
+        margin-inline: 0;
+        border-radius: 0;
+    }
+
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) > header {
+        margin-top: 0;
+    }
+
+    #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner > div:nth-child(2) {
+        margin-left: 0;
+    }
+}
+
+/* Dark equivalent of the same workspace language. */
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) {
+    background:
+        radial-gradient(circle at 8% 0%, rgba(84, 71, 153, .24), transparent 30%),
+    linear-gradient(118deg, transparent 0 22%, rgba(110, 91, 190, .10) 22.2% 27%, transparent 27.2%),
+    linear-gradient(32deg, transparent 0 76%, rgba(51, 133, 120, .09) 76.2% 82%, transparent 82.2%),
+        #15161b !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero))::before {
+    border-color: rgba(168, 145, 255, .14);
+    background: rgba(69, 58, 112, .10);
+    box-shadow: 0 0 0 18px rgba(168, 145, 255, .035), 0 0 0 36px rgba(168, 145, 255, .022);
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero))::after {
+    border-color: rgba(62, 191, 164, .15);
+    background: rgba(29, 91, 81, .10);
+    box-shadow: 0 0 0 20px rgba(62, 191, 164, .035), 0 0 0 40px rgba(62, 191, 164, .02);
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main {
+    background: #202126 !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .2) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner > div:first-child > span,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b p.text-lg,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-head h2,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .bank-consolidated-head h2,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group h3 {
+    color: #f1eff8 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner input[type="text"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions .connection-status,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions .india-live-clock,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-actions button,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b select {
+    color: #dedbea !important;
+    background: #292a31 !important;
+    box-shadow: none !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .dashboard-header-inner input[type="text"]:focus,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar select:focus,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar select:focus-visible {
+    border-color: #b19fff !important;
+    box-shadow: 0 0 0 3px rgba(177, 159, 255, .22) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar select {
+    color: #dedbea !important;
+    background-color: #292a31 !important;
+    background-image: linear-gradient(45deg, transparent 50%, #bdb3dc 50%), linear-gradient(135deg, #bdb3dc 50%, transparent 50%);
+    box-shadow: inset 0 0 0 1px #3a3944 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar select option {
+    color: #f2f0fa;
+    background: #292a31;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar > div > div:last-child > button:last-child {
+    color: #c4b8e3 !important;
+    background: #292a31 !important;
+    box-shadow: inset 0 0 0 1px #3a3944 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .console-toolbar > div > div:last-child > button:last-child:hover {
+    color: #f2edff !important;
+    background: #38304f !important;
+    box-shadow: inset 0 0 0 1px #6555c9 !important;
+}
+
+[data-theme="dark"] .console-sort-trigger {
+    color: #dedbea !important;
+    background: #292a31 !important;
+    box-shadow: inset 0 0 0 1px #3a3944 !important;
+}
+
+[data-theme="dark"] .console-sort-trigger:hover,
+[data-theme="dark"] .console-sort-trigger[aria-expanded="true"] {
+    color: #efeaff !important;
+    background: #38304f !important;
+    box-shadow: inset 0 0 0 1px #6555c9 !important;
+}
+
+[data-theme="dark"] .console-sort-menu {
+    background: #292a31;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .3), inset 0 0 0 1px #3a3944;
+}
+
+[data-theme="dark"] .console-sort-menu button {
+    color: #b7b1c7 !important;
+}
+
+[data-theme="dark"] .console-sort-menu button:hover,
+[data-theme="dark"] .console-sort-menu button.selected {
+    color: #efeaff !important;
+    background: #38304f !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group,

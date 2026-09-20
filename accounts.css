@@ -1,0 +1,509 @@
+.device-detail-panel .bank-record {
+    background: #fff !important;
+    border-color: var(--green-ui-line) !important;
+    box-shadow: 0 2px 8px rgba(27, 27, 42, .035) !important;
+}
+
+/* Aero workspace treatment for the Firebase entry screen. */
+#root > .min-h-screen:has(.Green-logo--hero) {
+    min-height: 100vh !important;
+    align-items: flex-start !important;
+    padding: 64px 24px 40px !important;
+    background-color: #f6f6f8 !important;
+    background-image:
+        linear-gradient(rgba(205, 206, 214, .22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(205, 206, 214, .22) 1px, transparent 1px) !important;
+    background-size: 40px 40px !important;
+    color: #202124 !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) > .absolute.top-0,
+#root > .min-h-screen:has(.Green-logo--hero) > .absolute.bottom-0 {
+    display: none !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) > .relative.z-10.w-full.max-w-md {
+    max-width: 520px !important;
+    padding: 0 !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .Green-logo--hero {
+    width: 72px !important;
+    height: 72px !important;
+    min-width: 72px !important;
+    min-height: 72px !important;
+    margin-bottom: 18px !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: #17171b !important;
+    box-shadow: 0 10px 24px rgba(30, 30, 40, .14) !important;
+    animation: none !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) h1 {
+    color: #202124 !important;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+    font-size: 30px !important;
+    font-style: normal !important;
+    font-weight: 800 !important;
+    letter-spacing: -.04em !important;
+    text-shadow: none !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) h1 + p {
+    margin-top: 7px !important;
+    color: #74757c !important;
+    font-size: 13px !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card {
+    padding: 24px !important;
+    border: 1px solid #e2e2e7 !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, .96) !important;
+    box-shadow: 0 12px 32px rgba(30, 30, 45, .07) !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card::before {
+    width: 150px;
+    height: 150px;
+    top: -92px;
+    right: -72px;
+    border: 18px solid rgba(101, 39, 232, .05);
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card > div:first-child > div:first-child {
+    margin-bottom: 18px !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .text-foreground,
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .text-muted-foreground {
+    color: #202124 !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .text-muted-foreground {
+    color: #74757c !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions > span {
+    color: #74757c !important;
+    background: #f1f1f5 !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .group {
+    border-color: #e5e5ea !important;
+    background: #fafafd !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .group:hover {
+    border-color: #cfc0f5 !important;
+    background: #faf8ff !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .group button:first-child {
+    color: #7340d9 !important;
+    background: #f0e9ff !important;
+    border-color: #dfd3fa !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .group button:nth-child(2) {
+    color: #d95c55 !important;
+    background: #fff2f1 !important;
+    border-color: #f2d0cd !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .delete-all-accounts {
+    min-height: 34px !important;
+    padding: 8px 13px !important;
+    border-radius: 5px !important;
+    color: #d95c55 !important;
+    background: #fff2f1 !important;
+    border-color: #f2d0cd !important;
+    font-size: 12px !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .bulk-connect-btn,
+#root > .min-h-screen:has(.Green-logo--hero) .red-gradient {
+    color: #fff !important;
+    background: #6527e8 !important;
+    border-color: #6527e8 !important;
+    box-shadow: 0 6px 14px rgba(101, 39, 232, .18) !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .bulk-connect-btn:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .red-gradient:hover {
+    background: #7b3ff2 !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .csv-import-btn,
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card button:not(.red-gradient):not(.bulk-connect-btn) {
+    border: 1px solid #e1d9f5 !important;
+    border-radius: 5px !important;
+    color: #7340d9 !important;
+    background: #f7f4ff !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .csv-import-btn:hover,
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card button:not(.red-gradient):not(.bulk-connect-btn):hover {
+    border-color: #cfc0f5 !important;
+    background: #f5f1ff !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-input,
+#root > .min-h-screen:has(.Green-logo--hero) input[type="text"],
+#root > .min-h-screen:has(.Green-logo--hero) input[type="password"] {
+    border-color: #e2e2e7 !important;
+    border-radius: 8px !important;
+    color: #303137 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-input:focus,
+#root > .min-h-screen:has(.Green-logo--hero) input[type="text"]:focus,
+#root > .min-h-screen:has(.Green-logo--hero) input[type="password"]:focus {
+    border-color: #cfc0f5 !important;
+    box-shadow: 0 0 0 3px rgba(101, 39, 232, .08) !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-btn {
+    color: #fff !important;
+    border-color: #6527e8 !important;
+    border-radius: 8px !important;
+    background: #6527e8 !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card button[class*="border-dashed"],
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card .csv-import-btn {
+    border: 1px solid #e1d9f5 !important;
+    border-radius: 5px !important;
+    background: #f7f4ff !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) {
+    background-image:
+        radial-gradient(circle at 50% 0%, rgba(221, 216, 255, .38), transparent 38%),
+        radial-gradient(circle at 10% 90%, rgba(213, 241, 237, .35), transparent 30%) !important;
+    background-size: auto !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) > .relative.z-10 > p:last-child {
+    margin-top: 18px !important;
+    color: #92939a !important;
+    font-size: 11px !important;
+}
+
+@media (max-width: 620px) {
+    #root > .min-h-screen:has(.Green-logo--hero) {
+        padding: 32px 14px 24px !important;
+    }
+
+    #root > .min-h-screen:has(.Green-logo--hero) .glass-card {
+        padding: 18px !important;
+    }
+}
+
+/* Shared workspace chrome: let surfaces and color do the grouping. */
+:root {
+    --workspace-bg: #f6f6f8;
+    --workspace-surface: #ffffff;
+    --workspace-soft: #fafafd;
+    --workspace-line: #e8e8ed;
+    --workspace-ink: #202124;
+    --workspace-muted: #74757c;
+    --workspace-primary: #6527e8;
+}
+
+button,
+label,
+input,
+select,
+textarea,
+.glass-card,
+[class*="rounded-xl"][class*="border"],
+[class*="rounded-2xl"][class*="border"],
+[class*="rounded-3xl"][class*="border"] {
+    border-color: transparent !important;
+}
+
+button,
+label {
+    box-shadow: 0 2px 7px rgba(30, 30, 45, .035);
+}
+
+button:hover,
+label:hover {
+    box-shadow: 0 5px 14px rgba(30, 30, 45, .075);
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) {
+    background: var(--workspace-bg) !important;
+    color: var(--workspace-ink) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main {
+    background: var(--workspace-bg) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main [class*="rounded-2xl"][class*="border"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main [class*="rounded-xl"][class*="border"],
+#root > .min-h-screen:not(:has(.Green-logo--hero)) > main [class*="rounded-3xl"][class*="border"] {
+    background: var(--workspace-surface) !important;
+    box-shadow: 0 3px 12px rgba(30, 30, 45, .045) !important;
+}
+
+.theme-toggle {
+    position: relative;
+    flex: 0 0 auto;
+    z-index: 100;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0 !important;
+    border-radius: 9px;
+    color: #66676f;
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 3px 12px rgba(30, 30, 45, .08);
+    font-size: 16px;
+    gap: 7px;
+    line-height: 1;
+}
+
+.theme-toggle i {
+    font-size: 12px;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .theme-toggle {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: auto;
+    height: 32px;
+    margin-right: 2px;
+    padding: 0 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 18px;
+}
+
+.theme-toggle:hover {
+    color: var(--workspace-primary);
+    background: #f5f1ff;
+}
+
+.console-metric-chips {
+    gap: 8px !important;
+    flex-wrap: wrap;
+}
+
+.console-metric-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 92px;
+    padding: 7px 11px;
+    border: 0 !important;
+    border-radius: 7%;
+    background: #fafafd;
+    box-shadow: inset 0 0 0 1px #f0eff6;
+}
+
+.console-metric-chip > div {
+    display: grid;
+    gap: 1px;
+}
+
+.console-metric-chip p:first-child {
+    color: #858197 !important;
+    font-size: 8px !important;
+    letter-spacing: .08em !important;
+}
+
+.console-metric-chip p:last-child {
+    font-size: 16px !important;
+    line-height: 1.05 !important;
+}
+
+.metric-chip-icon {
+    width: 19px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.metric-total .metric-chip-icon,
+.metric-total p:last-child { color: #d95c55 !important; }
+.metric-online .metric-chip-icon,
+.metric-online p:last-child,
+.metric-bank .metric-chip-icon,
+.metric-bank p:last-child { color: #159b68 !important; }
+.metric-offline .metric-chip-icon,
+.metric-offline p:last-child { color: #d95c55 !important; }
+.metric-cards .metric-chip-icon,
+.metric-cards p:last-child { color: #7340d9 !important; }
+
+[data-theme="dark"] .console-metric-chip {
+    background: #292a31;
+    box-shadow: inset 0 0 0 1px #3a3944;
+}
+
+[data-theme="dark"] .console-metric-chip p:first-child { color: #aaa6b8 !important; }
+[data-theme="dark"] .metric-total .metric-chip-icon,
+[data-theme="dark"] .metric-total p:last-child,
+[data-theme="dark"] .metric-offline .metric-chip-icon,
+[data-theme="dark"] .metric-offline p:last-child { color: #ff918f !important; }
+[data-theme="dark"] .metric-online .metric-chip-icon,
+[data-theme="dark"] .metric-online p:last-child,
+[data-theme="dark"] .metric-bank .metric-chip-icon,
+[data-theme="dark"] .metric-bank p:last-child { color: #45dda2 !important; }
+[data-theme="dark"] .metric-cards .metric-chip-icon,
+[data-theme="dark"] .metric-cards p:last-child { color: #b19fff !important; }
+
+[data-theme="dark"] {
+    --workspace-bg: #17181c;
+    --workspace-surface: #22242a;
+    --workspace-soft: #1d1f24;
+    --workspace-line: #30333b;
+    --workspace-ink: #f2f3f5;
+    --workspace-muted: #a4a7b0;
+    --workspace-primary: #a987ff;
+}
+
+[data-theme="dark"] body,
+[data-theme="dark"] html {
+    background: var(--workspace-bg) !important;
+    color: var(--workspace-ink) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) {
+    background-color: var(--workspace-bg) !important;
+    background-image:
+        radial-gradient(circle at 50% 0%, rgba(77, 64, 135, .34), transparent 40%),
+        radial-gradient(circle at 10% 90%, rgba(38, 89, 83, .22), transparent 30%) !important;
+    background-size: auto !important;
+    color: var(--workspace-ink) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) h1,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .text-foreground {
+    color: var(--workspace-ink) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) h1 + p,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .text-muted-foreground,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) > .relative.z-10 > p:last-child {
+    color: var(--workspace-muted) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card {
+    border-color: var(--workspace-line) !important;
+    background: var(--workspace-surface) !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, .22) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .group,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-input,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) input[type="text"],
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) input[type="password"] {
+    border-color: var(--workspace-line) !important;
+    color: var(--workspace-ink) !important;
+    background: var(--workspace-soft) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .saved-account-actions > span {
+    color: var(--workspace-muted) !important;
+    background: #30323a !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .csv-import-btn,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card button:not(.red-gradient):not(.bulk-connect-btn) {
+    color: #b89eff !important;
+    background: #292431 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-btn,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .bulk-connect-btn,
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .red-gradient {
+    color: #17131f !important;
+    background: #b18fff !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card button[class*="border-dashed"],
+[data-theme="dark"] #root > .min-h-screen:has(.Green-logo--hero) .glass-card .csv-import-btn {
+    border: 1px solid #514778 !important;
+    background: #2b273c !important;
+}
+
+#root > .min-h-screen:has(.Green-logo--hero) .glass-card button,
+#root > .min-h-screen:has(.Green-logo--hero) .csv-import-btn,
+#root > .min-h-screen:has(.Green-logo--hero) .bulk-manual-btn {
+    border: 0 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > header + div.border-b {
+    background: #1d1f24 !important;
+    border-color: var(--workspace-line) !important;
+    color: var(--workspace-ink) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main [class*="rounded-2xl"][class*="border"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main [class*="rounded-xl"][class*="border"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main [class*="rounded-3xl"][class*="border"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) .glass-card {
+    border-color: var(--workspace-line) !important;
+    background: var(--workspace-surface) !important;
+    color: var(--workspace-ink) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .18) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) input,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) select,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) textarea {
+    border-color: var(--workspace-line) !important;
+    color: var(--workspace-ink) !important;
+    background: var(--workspace-soft) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main p,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main span,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main strong,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main b,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main h1,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main h2,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main h3 {
+    color: #e5e6eb !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-muted"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-[#888]"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-[#777]"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-[#666]"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-[#555]"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-[#444]"] {
+    color: #aeb1ba !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-emerald"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-green"] {
+    color: #35d890 !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-purple"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) main [class*="text-blue"] {
+    color: #b18fff !important;
+}
+
+[data-theme="dark"] .theme-toggle {
+    color: #e5d9ff;
+    background: #292431;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .24);
+}
+

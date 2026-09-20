@@ -1,0 +1,517 @@
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-section,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .bank-consolidated-wrap,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-card-shell,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .firebase-summary-card,
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .bank-consolidated-card {
+    background: #292a31 !important;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, .16) !important;
+}
+
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group [class*="bg-emerald-950"],
+[data-theme="dark"] #root > .min-h-screen:not(:has(.Green-logo--hero)) > main .grid[class*="grid-cols"] > .group [class*="bg-purple-950"] {
+    background: #203831 !important;
+}
+
+/* ==========================================================================
+   Console Screen Right 20% Inspector: Fully Uniform Light & Dark Theme System
+   ========================================================================== */
+
+:root {
+    --detail-panel-bg: #ffffff;
+    --detail-panel-surface: #ffffff;
+    --detail-panel-surface-soft: #f8f7fd;
+    --detail-panel-header: #ffffff;
+    --detail-panel-tabs: #faf9fd;
+    --detail-panel-line: #eae7f4;
+    --detail-panel-line-subtle: #f2f0f9;
+    --detail-panel-text: #211c38;
+    --detail-panel-muted: #726d88;
+    --detail-panel-faint: #9c97ae;
+    --detail-panel-accent: #7565dd;
+    --detail-panel-accent-soft: #f0ecff;
+    --detail-panel-green: #10b981;
+    --detail-panel-green-soft: #effcf6;
+    --detail-panel-shadow: -12px 0 28px rgba(75, 63, 125, .08);
+}
+
+[data-theme="dark"] {
+    --detail-panel-bg: #202126;
+    --detail-panel-surface: #292a31;
+    --detail-panel-surface-soft: #24252c;
+    --detail-panel-header: #202126;
+    --detail-panel-tabs: #1d1e23;
+    --detail-panel-line: #353642;
+    --detail-panel-line-subtle: #2d2e38;
+    --detail-panel-text: #f3f1fa;
+    --detail-panel-muted: #aba7ba;
+    --detail-panel-faint: #817d91;
+    --detail-panel-accent: #aa98ff;
+    --detail-panel-accent-soft: #38304f;
+    --detail-panel-green: #34d399;
+    --detail-panel-green-soft: #183328;
+    --detail-panel-shadow: -14px 0 32px rgba(0, 0, 0, .35);
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .device-detail-panel,
+.device-detail-panel {
+    color: var(--detail-panel-text) !important;
+    background: var(--detail-panel-bg) !important;
+    border-left: 1px solid var(--detail-panel-line) !important;
+    box-shadow: var(--detail-panel-shadow) !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .device-detail-header,
+.device-detail-panel .device-detail-header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    min-height: 0 !important;
+    padding: 12px 14px !important;
+    color: var(--detail-panel-text) !important;
+    background: var(--detail-panel-header) !important;
+    border-bottom: 1px solid var(--detail-panel-line) !important;
+}
+
+.device-detail-panel .device-detail-header-top {
+    min-width: 0;
+    min-height: 34px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+}
+
+.device-detail-panel .device-detail-header-top > div:first-child {
+    width: 32px !important;
+    height: 32px !important;
+    flex: 0 0 32px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 50% !important;
+    background: var(--detail-panel-surface-soft) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+}
+
+.device-detail-panel .device-detail-header-top h3 {
+    min-width: 0;
+    flex: 1 1 auto;
+    color: var(--detail-panel-text) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+}
+
+.device-detail-panel .device-detail-close,
+.device-detail-panel .device-detail-delete {
+    width: 30px !important;
+    height: 30px !important;
+    display: grid !important;
+    flex: 0 0 30px !important;
+    place-items: center !important;
+    padding: 0 !important;
+    border-radius: 9px !important;
+    transition: all .16s ease !important;
+}
+
+.device-detail-panel .device-detail-close {
+    color: var(--detail-panel-accent) !important;
+    background: var(--detail-panel-surface) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+}
+
+.device-detail-panel .device-detail-close:hover {
+    background: var(--detail-panel-accent-soft) !important;
+    border-color: var(--detail-panel-accent) !important;
+}
+
+.device-detail-panel .device-detail-delete {
+    color: #e11d48 !important;
+    background: #fff1f2 !important;
+    border: 1px solid #fecdd3 !important;
+}
+
+[data-theme="dark"] .device-detail-panel .device-detail-delete {
+    color: #fda4af !important;
+    background: #4c0519 !important;
+    border-color: #881337 !important;
+}
+
+.device-detail-panel .device-detail-delete:hover {
+    opacity: .9 !important;
+}
+
+.device-detail-panel .device-detail-source-row {
+    min-width: 0;
+    min-height: 28px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+}
+
+.device-detail-panel .device-detail-battery {
+    margin-right: auto;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+}
+
+.device-detail-panel .device-detail-status {
+    display: none !important;
+}
+
+#root > .min-h-screen:not(:has(.Green-logo--hero)) .device-detail-tabs,
+.device-detail-panel .device-detail-tabs {
+    min-height: 42px !important;
+    padding: 0 4px !important;
+    gap: 0 !important;
+    display: flex !important;
+    align-items: stretch !important;
+    background: var(--detail-panel-tabs) !important;
+    border-bottom: 1px solid var(--detail-panel-line) !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+}
+
+.device-detail-panel .device-detail-tabs::-webkit-scrollbar {
+    display: none !important;
+}
+
+.device-detail-panel .device-detail-tabs button {
+    min-width: 0;
+    min-height: 42px !important;
+    flex: 1 1 20% !important;
+    padding: 6px 4px !important;
+    border: 0 !important;
+    border-bottom: 2px solid transparent !important;
+    background: transparent !important;
+    color: var(--detail-panel-muted) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    transition: all .16s ease !important;
+}
+
+.device-detail-panel .device-detail-tabs button:hover {
+    color: var(--detail-panel-text) !important;
+}
+
+.device-detail-panel .device-detail-tabs button[class*="border-red"] {
+    color: var(--detail-panel-accent) !important;
+    border-bottom-color: var(--detail-panel-accent) !important;
+}
+
+.device-detail-panel .device-detail-tabs button[class*="border-purple"] {
+    color: var(--detail-panel-accent) !important;
+    border-bottom-color: var(--detail-panel-accent) !important;
+}
+
+.device-detail-panel .device-detail-tabs button[class*="border-emerald"] {
+    color: var(--detail-panel-green) !important;
+    border-bottom-color: var(--detail-panel-green) !important;
+}
+
+.device-detail-panel .device-detail-body {
+    color: var(--detail-panel-text) !important;
+    background: var(--detail-panel-bg) !important;
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+}
+
+/* Info Tab Panel */
+.device-detail-panel .tab-panel--info {
+    padding: 14px 16px !important;
+}
+
+.device-detail-panel .tab-panel--info p[class*="uppercase"] {
+    color: var(--detail-panel-faint) !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    letter-spacing: .08em !important;
+}
+
+.device-detail-panel .device-detail-row {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid var(--detail-panel-line-subtle) !important;
+    gap: 10px !important;
+}
+
+.device-detail-panel .device-detail-row:last-child {
+    border-bottom: none !important;
+}
+
+.device-detail-panel .device-detail-row > span:first-child {
+    color: var(--detail-panel-muted) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    flex-shrink: 0 !important;
+    width: 34% !important;
+}
+
+.device-detail-panel .device-detail-row > span:last-child {
+    color: var(--detail-panel-text) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-align: right !important;
+    word-break: break-word !important;
+}
+
+.device-detail-panel .device-detail-row > span:last-child.text-blue-400 {
+    color: #3b82f6 !important;
+}
+
+.device-detail-panel .device-detail-row > span:last-child.text-purple-400 {
+    color: var(--detail-panel-accent) !important;
+}
+
+.device-detail-panel .tab-panel--info div[class*="bg-red-950"] {
+    background: #fff1f2 !important;
+    border-color: #fecdd3 !important;
+    border-left-color: #ef4444 !important;
+}
+
+[data-theme="dark"] .device-detail-panel .tab-panel--info div[class*="bg-red-950"] {
+    background: #4c0519 !important;
+    border-color: #881337 !important;
+    border-left-color: #f43f5e !important;
+}
+
+.device-detail-panel .tab-panel--info div[class*="bg-emerald-950"] {
+    background: var(--detail-panel-green-soft) !important;
+    border-color: #a7f3d0 !important;
+}
+
+[data-theme="dark"] .device-detail-panel .tab-panel--info div[class*="bg-emerald-950"] {
+    background: #064e3b !important;
+    border-color: #047857 !important;
+}
+
+/* Bank Tab Panel */
+.device-detail-panel .tab-panel--bank {
+    background: var(--detail-panel-bg) !important;
+}
+
+.device-detail-panel .tab-panel--bank > div:first-child {
+    padding: 10px 14px !important;
+    border-bottom: 1px solid var(--detail-panel-line) !important;
+    background: var(--detail-panel-surface-soft) !important;
+}
+
+.device-detail-panel .tab-panel--bank > div:first-child span {
+    color: var(--detail-panel-muted) !important;
+}
+
+.device-detail-panel .tab-panel--bank > div:first-child button {
+    border: 1px solid var(--detail-panel-line) !important;
+    background: var(--detail-panel-surface) !important;
+    color: var(--detail-panel-muted) !important;
+}
+
+.device-detail-panel .bank-record {
+    background: var(--detail-panel-surface) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+    border-left: 3px solid var(--detail-panel-green) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04) !important;
+}
+
+.device-detail-panel .bank-record p,
+.device-detail-panel .bank-record span {
+    color: var(--detail-panel-text) !important;
+}
+
+.device-detail-panel .bank-record p[class*="uppercase"],
+.device-detail-panel .bank-record .font-mono {
+    color: var(--detail-panel-muted) !important;
+}
+
+.device-detail-panel .bank-record p.text-xl {
+    color: var(--detail-panel-text) !important;
+    font-weight: 800 !important;
+}
+
+.device-detail-panel .tab-panel--bank div[class*="bg-\[\#081410\]"] {
+    background: var(--detail-panel-green-soft) !important;
+    border-color: #a7f3d0 !important;
+}
+
+[data-theme="dark"] .device-detail-panel .tab-panel--bank div[class*="bg-\[\#081410\]"] {
+    background: #064e3b !important;
+    border-color: #047857 !important;
+}
+
+.device-detail-panel .tab-panel--bank div[class*="bg-\[\#081410\]"] span {
+    color: var(--detail-panel-text) !important;
+}
+
+/* Card Tab Panel */
+.device-detail-panel .tab-panel--card {
+    background: var(--detail-panel-bg) !important;
+}
+
+.device-detail-panel .tab-panel--card > div:first-child {
+    padding: 10px 14px !important;
+    border-bottom: 1px solid var(--detail-panel-line) !important;
+    background: var(--detail-panel-surface-soft) !important;
+}
+
+.device-detail-panel .tab-panel--card > div:first-child span {
+    color: var(--detail-panel-muted) !important;
+}
+
+.device-detail-panel .tab-panel--card > div:first-child button {
+    border: 1px solid var(--detail-panel-line) !important;
+    background: var(--detail-panel-surface) !important;
+    color: var(--detail-panel-muted) !important;
+}
+
+.device-detail-panel .card-record {
+    background: var(--detail-panel-surface) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+    border-left: 3px solid var(--detail-panel-accent) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04) !important;
+}
+
+.device-detail-panel .card-record p,
+.device-detail-panel .card-record span {
+    color: var(--detail-panel-text) !important;
+}
+
+.device-detail-panel .card-record p[class*="uppercase"],
+.device-detail-panel .card-record .font-mono {
+    color: var(--detail-panel-muted) !important;
+}
+
+/* SMS Tab Panel */
+.device-detail-panel .tab-panel--sms {
+    background: var(--detail-panel-bg) !important;
+}
+
+.device-detail-panel .sms-manual-refresh-row {
+    padding: 8px 14px !important;
+    border-bottom: 1px solid var(--detail-panel-line) !important;
+    background: var(--detail-panel-surface-soft) !important;
+}
+
+.device-detail-panel .sms-manual-refresh {
+    border: 1px solid var(--detail-panel-line) !important;
+    border-radius: 8px !important;
+    background: var(--detail-panel-surface) !important;
+    color: var(--detail-panel-accent) !important;
+    font-weight: 600 !important;
+}
+
+.device-detail-panel .sms-quick-send {
+    padding: 10px 14px !important;
+    background: var(--detail-panel-surface-soft) !important;
+    border-bottom: 1px solid var(--detail-panel-line) !important;
+}
+
+.device-detail-panel .sms-quick-send input {
+    background: var(--detail-panel-surface) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+    color: var(--detail-panel-text) !important;
+    border-radius: 8px !important;
+}
+
+.device-detail-panel .sms-quick-send input::placeholder {
+    color: var(--detail-panel-faint) !important;
+}
+
+.device-detail-panel .sms-quick-send-actions button {
+    border: 1px solid var(--detail-panel-line) !important;
+    background: var(--detail-panel-surface) !important;
+    color: var(--detail-panel-text) !important;
+    border-radius: 8px !important;
+}
+
+.device-detail-panel .sms-quick-send-actions button.sending {
+    background: var(--detail-panel-accent) !important;
+    color: #ffffff !important;
+}
+
+.device-detail-panel .sms-search-wrap input {
+    background: var(--detail-panel-surface) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+    color: var(--detail-panel-text) !important;
+    border-radius: 10px !important;
+}
+
+.device-detail-panel .sms-search-wrap input::placeholder {
+    color: var(--detail-panel-faint) !important;
+}
+
+.device-detail-panel .sms-search-wrap svg {
+    color: var(--detail-panel-faint) !important;
+}
+
+.device-detail-panel .tab-panel--sms div[class*="rounded-xl"][class*="border"] {
+    background: var(--detail-panel-surface) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .03) !important;
+}
+
+.device-detail-panel .tab-panel--sms div[class*="rounded-xl"][class*="border"].border-l-purple-600\/60 {
+    border-left: 3px solid var(--detail-panel-accent) !important;
+}
+
+.device-detail-panel .tab-panel--sms div[class*="rounded-xl"][class*="border"].border-l-emerald-600\/60 {
+    border-left: 3px solid var(--detail-panel-green) !important;
+}
+
+.device-detail-panel .tab-panel--sms div[class*="rounded-xl"][class*="border"].border-l-red-600\/60 {
+    border-left: 3px solid #ef4444 !important;
+}
+
+.device-detail-panel .tab-panel--sms div[class*="rounded-xl"][class*="border"] p {
+    color: var(--detail-panel-text) !important;
+}
+
+.device-detail-panel .tab-panel--sms .sms-card-actions span {
+    color: var(--detail-panel-muted) !important;
+}
+
+.device-detail-panel .tab-panel--sms .sms-copy-one {
+    border: 1px solid var(--detail-panel-line) !important;
+    background: var(--detail-panel-surface-soft) !important;
+    color: var(--detail-panel-accent) !important;
+    border-radius: 6px !important;
+}
+
+/* Send Tab Panel */
+.device-detail-panel .tab-panel--send {
+    background: var(--detail-panel-bg) !important;
+}
+
+.device-detail-panel .tab-panel--send p[class*="uppercase"] {
+    color: var(--detail-panel-faint) !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    letter-spacing: .08em !important;
+}
+
+.device-detail-panel .tab-panel--send button[class*="bg-red-600"] {
+    background: var(--detail-panel-accent) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(117, 101, 221, .25) !important;
+}
+
+.device-detail-panel .tab-panel--send button:not([class*="bg-red-600"]):not(.send-composer-close) {
+    background: var(--detail-panel-surface) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+    color: var(--detail-panel-text) !important;
+}
+
+.device-detail-panel .tab-panel--send input,
+.device-detail-panel .tab-panel--send textarea {
+    background: var(--detail-panel-surface) !important;
+    border: 1px solid var(--detail-panel-line) !important;
+    color: var(--detail-panel-text) !important;
+    border-radius: 10px !important;
+}
